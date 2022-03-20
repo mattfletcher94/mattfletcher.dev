@@ -1,53 +1,57 @@
 <template>
-  <div class="relative block w-full">
+  <div class="relative block w-full mt-20">
     <div class="block">
-      <div class="absolute top-0 left-0 w-2/3 h-2/3 bg-gray-50" />
-      <div class="container py-20">
+      <div class="absolute top-0 left-0 w-2/3 h-full bg-gray-50" />
+      <div ref="container" class="container py-20">
         <div class="prose text-left">
           <Text type="heading-2" as="h3" class="mb-6 ">
             Work
             <span class="text-purple-500">Experience</span>
-            <span class="hidden md:inline">and <br></span>
+            <span class="hidden md:inline"> and <br></span>
             <span class="inline md:hidden"> / </span>
             Acamdemic
             <span class="text-purple-500">Achievements</span>
-          </Text>
-          <Text type="body" as="p" class="hidden md:block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
         </div>
         <div
           class="block"
           :style="{
-            width: 'calc(100% + 2rem)'
+            width: `calc(100vw - ${containerLeft}px)`,
           }"
         >
           <ul
-            class="block mt-2 md:mt-12 pb-6 overflow-y-hidden overflow-x-scroll whitespace-nowrap"
+            class="flex w-full mt-2 md:mt-12"
           >
-            <li class="inline-block p-4 h-48 w-80 mr-8 bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="flex space-x-6 text-left">
+            <li class="timeline-card z-10">
+              <div class="flex flex-col justify-between h-full ">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
-                    <Text type="small" as="span" muted>
+                    <Text type="small" as="span">
                       July 2022 -> present
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
                       Full time Developer at Pitched
                     </Text>
-                    <Button
-                      variant="secondary"
-                      class="py-1.5 px-4 !text-xs"
-                      @click="isOpen = true"
-                    >
-                      Read more
-                    </Button>
                   </div>
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    @click="isOpen = true"
+                  >
+                    Read more
+                  </Button>
                 </div>
               </div>
             </li>
-            <li class="inline-block p-4 h-48 w-80 mr-8 bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="flex space-x-6 text-left">
+            <li class="timeline-arrow">
+              <div class="flex h-full items-center">
+                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
+              </div>
+            </li>
+            <li class="timeline-card">
+              <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
                     <Text type="small" as="span" muted>
@@ -56,19 +60,26 @@
                     <Text type="body" weight="600" as="h4" class="mt-0">
                       Graduated from Plymouth University with a First Class Honours
                     </Text>
-                    <Button
-                      variant="secondary"
-                      class="py-1.5 px-4 !text-xs"
-                      @click="isOpen = true"
-                    >
-                      Read more
-                    </Button>
                   </div>
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    @click="isOpen = true"
+                  >
+                    Read more
+                  </Button>
                 </div>
               </div>
             </li>
-            <li class="inline-block p-4 h-48 w-80 mr-8 bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="flex space-x-6 text-left">
+            <li class="timeline-arrow">
+              <div class="flex h-full items-center">
+                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
+              </div>
+            </li>
+            <li class="timeline-card">
+              <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
                     <Text type="small" as="span" muted>
@@ -77,19 +88,27 @@
                     <Text type="body" weight="600" as="h4" class="mt-0">
                       Completed 1 year work placement at Pitched
                     </Text>
-                    <Button
-                      variant="secondary"
-                      class="py-1.5 px-4 !text-xs"
-                      @click="isOpen = true"
-                    >
-                      Read more
-                    </Button>
                   </div>
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    @click="isOpen = true"
+                  >
+                    Read more
+                  </Button>
                 </div>
               </div>
             </li>
-            <li class="inline-block p-4 h-48 w-80 mr-8 bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="flex space-x-6 text-left">
+
+            <li class="timeline-arrow">
+              <div class="flex h-full items-center">
+                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
+              </div>
+            </li>
+            <li class="timeline-card">
+              <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
                     <Text type="small" as="span" muted>
@@ -98,19 +117,27 @@
                     <Text type="body" weight="600" as="h4" class="mt-0">
                       Began pursuing a Computer Science degree at Plymouth University
                     </Text>
-                    <Button
-                      variant="secondary"
-                      class="py-1.5 px-4 !text-xs"
-                      @click="isOpen = true"
-                    >
-                      Read more
-                    </Button>
                   </div>
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    @click="isOpen = true"
+                  >
+                    Read more
+                  </Button>
                 </div>
               </div>
             </li>
-            <li class="inline-block p-4 h-48 w-80 mr-8 bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div class="flex space-x-6 text-left">
+
+            <li class="timeline-arrow">
+              <div class="flex h-full items-center">
+                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
+              </div>
+            </li>
+            <li class="timeline-card">
+              <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
                     <Text type="small" as="span" muted>
@@ -119,14 +146,16 @@
                     <Text type="body" weight="600" as="h4" class="mt-0">
                       My Developer journey began
                     </Text>
-                    <Button
-                      variant="secondary"
-                      class="py-1.5 px-4 !text-xs"
-                      @click="isOpen = true"
-                    >
-                      Read more
-                    </Button>
                   </div>
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    @click="isOpen = true"
+                  >
+                    Read more
+                  </Button>
                 </div>
               </div>
             </li>
@@ -134,236 +163,6 @@
         </div>
       </div>
     </div>
-    <!--
-      <div class="block">
-        <div class="grid grid-cols-12 gap-16 h-full">
-          <div class="col-span-6">
-            <div class="prose mx-auto text-left w-full max-w-3xl">
-              <Text type="heading-2" as="h3" class="mb-6 ">
-                Professional Experience
-              </Text>
-              <Text type="body" as="p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </Text>
-            </div>
-            <ul
-              class="block mt-12 overflow-y-auto overflow-x-hidden p-8 bg-white shadow-2xl rounded-3xl"
-              :style="{
-                maxHeight: '400px'
-              }"
-            >
-              <li class="ml-4 pb-8">
-                <div class="absolute top-0 left-4 w-2 h-full bg-purple-500" />
-                <div class="flex space-x-6 text-left">
-                  <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-purple-500" />
-                  <div>
-                    <div class="prose mx-auto text-left">
-                      <Text type="small" as="span" muted>
-                        July 2022
-                      </Text>
-                      <Text type="body" weight="600" as="h4" class="mt-0">
-                        Full time Developer at Pitched
-                      </Text>
-                      <Text type="body" as="p" class="mt-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="ml-4 pb-8">
-                <div class="absolute top-0 left-4 w-2 h-full bg-purple-500" />
-                <div class="flex space-x-6 text-left">
-                  <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-purple-500" />
-                  <div>
-                    <div class="prose mx-auto text-left">
-                      <Text type="small" as="span" muted>
-                        September 2021
-                      </Text>
-                      <Text type="body" weight="600" as="h4" class="mt-0">
-                        Graduated from Plymouth University with a First Class Honours
-                      </Text>
-                      <Text type="body" as="p" class="mt-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="ml-4 pb-8">
-                <div class="absolute top-0 left-4 w-2 h-full bg-gray-100" />
-                <div class="flex space-x-6 text-left">
-                  <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                  <div>
-                    <div class="prose mx-auto text-left">
-                      <Text type="small" as="span" muted>
-                        July 2020
-                      </Text>
-                      <Text type="body" weight="600" as="h4" class="mt-0">
-                        Completed 1 year work placement at Pitched
-                      </Text>
-                      <Text type="body" as="p" class="mt-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="ml-4 pb-8">
-                <div class="absolute top-0 left-4 w-2 h-full bg-gray-100" />
-                <div class="flex space-x-6 text-left">
-                  <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                  <div>
-                    <div class="prose mx-auto text-left">
-                      <Text type="small" as="span" muted>
-                        September 2018
-                      </Text>
-                      <Text type="body" weight="600" as="h4" class="mt-0">
-                        Began pursuing a Computer Science degree at Plymouth University
-                      </Text>
-                      <Text type="body" as="p" class="mt-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="ml-4 pb-8">
-                <div class="flex space-x-6 text-left">
-                  <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                  <div>
-                    <div class="prose mx-auto text-left">
-                      <Text type="small" as="span" muted>
-                        September 2016
-                      </Text>
-                      <Text type="body" weight="600" as="h4" class="mt-0">
-                        My Developer journey began
-                      </Text>
-                      <Text type="body" as="p" class="mt-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-span-6">
-            <div class="prose mx-auto text-left w-full max-w-3xl">
-              <Text type="heading-2" as="h3" class="mb-6 ">
-                What I'm up to
-              </Text>
-              <Text type="body" as="p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </Text>
-            </div>
-            <div class="block mt-12">
-              <ul
-                class="block mt-12 overflow-y-auto overflow-x-hidden p-8 bg-white shadow-2xl rounded-3xl"
-                :style="{
-                  maxHeight: '400px'
-                }"
-              >
-                <li class="ml-4 pb-8">
-                  <div class="absolute top-0 left-4 w-2 h-full bg-gray-100" />
-                  <div class="flex space-x-6 text-left">
-                    <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                    <div>
-                      <div class="prose mx-auto text-left">
-                        <Text type="small" as="span" muted>
-                          On-going
-                        </Text>
-                        <Text type="body" weight="600" as="h4" class="mt-0">
-                          digramming.io
-                        </Text>
-                        <Text type="body" as="p" class="mt-0">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="ml-4 pb-8">
-                  <div class="absolute top-0 left-4 w-2 h-full bg-gray-100" />
-                  <div class="flex space-x-6 text-left">
-                    <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                    <div>
-                      <div class="prose mx-auto text-left">
-                        <Text type="small" as="span" muted>
-                          March 2022
-                        </Text>
-                        <Text type="body" weight="600" as="h4" class="mt-0">
-                          My Portfolio Website
-                        </Text>
-                        <Text type="body" as="p" class="mt-0">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="ml-4 pb-8">
-                  <div class="absolute top-0 left-4 w-2 h-full bg-gray-100" />
-                  <div class="flex space-x-6 text-left">
-                    <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                    <div>
-                      <div class="prose mx-auto text-left">
-                        <Text type="small" as="span" muted>
-                          December 2020
-                        </Text>
-                        <Text type="body" weight="600" as="h4" class="mt-0">
-                          Published Maria Hocking's website
-                        </Text>
-                        <Text type="body" as="p" class="mt-0">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="ml-4 pb-8">
-                  <div class="absolute top-0 left-4 w-2 h-full bg-gray-100" />
-                  <div class="flex space-x-6 text-left">
-                    <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                    <div>
-                      <div class="prose mx-auto text-left">
-                        <Text type="small" as="span" muted>
-                          September 2020
-                        </Text>
-                        <Text type="body" weight="600" as="h4" class="mt-0">
-                          Published Listify
-                        </Text>
-                        <Text type="body" as="p" class="mt-0">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="ml-4 pb-8">
-                  <div class="flex space-x-6 text-left">
-                    <div class="flex shrink-0 w-10 h-10 rounded-full items-center bg-gray-100" />
-                    <div>
-                      <div class="prose mx-auto text-left">
-                        <Text type="small" as="span" muted>
-                          July 2020
-                        </Text>
-                        <Text type="body" weight="600" as="h4" class="mt-0">
-                          Refreshed Promobility's website
-                        </Text>
-                        <Text type="body" as="p" class="mt-0">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eaque unde perspiciatis corrupti eum.
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      -->
     <BottomSheet :open="isOpen" @close="isOpen = false">
       <template #content>
         <div class="p-8">
@@ -375,8 +174,50 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const isOpen = ref(false)
 
+const container = ref<HTMLElement | null>(null)
+const containerLeft = ref<number>(0)
+
+onMounted(() => {
+  if (!container.value)
+    return
+
+  // Calculate container pixels from left side of screen including dyanmiac padding
+  const containerOffsetLeft = container.value.getBoundingClientRect().left
+  const containerPaddingLeft = parseInt(window.getComputedStyle(container.value).paddingLeft)
+  containerLeft.value = containerOffsetLeft + containerPaddingLeft
+})
+
 </script>
+
+<style scoped>
+.timeline-card {
+  @apply shrink-0 align-top p-6 h-44 w-96 bg-white rounded-3xl shadow-xl;
+  margin-right: 30px;
+}
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: calc(50% - 10px);
+  height: 20px;
+  width: 30px;
+  background-color: white;
+  @apply shadow-lg
+}
+.timeline-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: calc(50% - 10px);
+  height: 20px;
+  width: 50px;
+  background-color: white;
+}
+.timeline-arrow {
+  @apply shrink-0 align-top w-8 h-8 text-center bg-white shadow-lg hidden;
+}
+</style>
