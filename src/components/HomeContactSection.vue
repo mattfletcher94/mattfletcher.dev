@@ -41,6 +41,7 @@
                 cap field
                 <input name="cap-field">
               </label>
+              <input type="hidden" name="form-name" value="contact">
               <div class="block w-full">
                 <input
                   id="name"
