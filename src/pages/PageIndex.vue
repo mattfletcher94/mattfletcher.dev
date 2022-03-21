@@ -11,6 +11,9 @@
   <div id="section-projects" ref="sectionProjects">
     <HomePortfolioSection />
   </div>
+  <div id="section-contact" ref="sectionContact">
+    <HomeContactSection />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -24,9 +27,10 @@ const sectionAbout = ref<null | HTMLElement>(null)
 const sectionSkills = ref<null | HTMLElement>(null)
 const sectionProjects = ref<null | HTMLElement>(null)
 const sectionExperience = ref<null | HTMLElement>(null)
+const sectionContact = ref<null | HTMLElement>(null)
 
 onMounted(() => {
-  if (!sectionSkills.value || !sectionProjects.value || !sectionExperience.value || !sectionAbout.value)
+  if (!sectionSkills.value || !sectionProjects.value || !sectionExperience.value || !sectionAbout.value || !sectionContact.value)
     return
 
   const observer = new IntersectionObserver((entries) => {
@@ -42,6 +46,7 @@ onMounted(() => {
   observer.observe(sectionProjects.value)
   observer.observe(sectionExperience.value)
   observer.observe(sectionAbout.value)
+  observer.observe(sectionContact.value)
 })
 
 useHead({

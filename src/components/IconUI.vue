@@ -7,7 +7,7 @@
   >
     <defs>
       <linearGradient
-        id="a"
+        id="aa"
         x1="-436.97"
         y1="26.93"
         x2="-344.02"
@@ -19,7 +19,7 @@
         <stop offset="1" stop-color="#1feaec" />
       </linearGradient>
       <linearGradient
-        id="b"
+        id="bb"
         x1="-436.97"
         y1="39.21"
         x2="-344.02"
@@ -44,14 +44,14 @@
   </svg>
 </template>
 
-<style>
+<style scoped>
 .a {
   isolation: isolate;
 }
 .b {
-  fill: url(#a);
+  fill: url(#aa);
 }
 .c {
-  fill: url(#b);
+  fill: url(#bb);
 }
 </style>

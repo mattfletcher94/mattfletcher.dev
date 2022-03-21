@@ -11,6 +11,6 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "components.d.ts", "node_modules/vite-plugin-pwa/client.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "components.d.ts", "globals.d.ts", "node_modules/vite-plugin-pwa/client.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
 }

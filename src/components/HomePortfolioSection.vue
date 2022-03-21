@@ -1,31 +1,34 @@
 <template>
-  <div v-once class="relative block w-full bg-white">
+  <div class="relative block w-full bg-white py-12 md:py-20">
     <div class="absolute top-0 left-0 w-full h-2/3" />
-    <div class="container container-no-padding py-12 md:py-20">
+    <div class="container">
       <div class="block">
         <div class="prose mx-auto text-center w-full max-w-2xl">
-          <Text type="heading-2" as="h2" class="mb-6 ">
-            In my <span class="text-purple-500">spare time...</span>
+          <Text type="heading-2" as="h2" class="mb-6" weight="700">
+            My <span class="text-purple-500">Projects</span>
           </Text>
           <Text type="body" as="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
         </div>
       </div>
-      <div class="block mx-auto" style="max-width:1100px">
+    </div>
+    <div class="container container-no-padding">
+      <div class="block mx-auto">
         <Carousel
           class="home-portfolio-section-carousel mt-6 md:mt-12"
           :settings="carouselSettings"
           :breakpoints="carouselBreakpoints"
         >
           <Slide v-for="project in projectsStore.projects" :key="project.title" class="pb-12 px-2">
-            <div class="carousel__item rounded-2xl shadow-xl bg-white overflow-hidden">
+            <div class="carousel__item rounded-3xl bg-white overflow-hidden">
               <div class="block w-full text-left">
                 <div class="block w-full p-6 overflow-hidden">
-                  <div
-                    class="absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-center blur-3xl"
-                    :style="{ backgroundImage: `url(${project.image})` }"
-                  />
+                  <img
+                    class="absolute inset-0 w-full h-full object-center object-cover blur-3xl"
+                    :src="project.image"
+                    :alt="project.title"
+                  >
                   <img
                     class="rounded-lg block mx-auto object-cover object-center z-10 shadow-2xl"
                     :src="project.image"
@@ -112,7 +115,7 @@ const carouselBreakpoints = ref({
   @apply block w-full ;
   transform: scale(1);
   opacity: 0.7;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 .home-portfolio-section-carousel .carousel__slide--visible > .carousel__item {
   opacity: 1;
@@ -120,12 +123,15 @@ const carouselBreakpoints = ref({
 }
 .home-portfolio-section-carousel .carousel__slide--next > .carousel__item {
   transform: scale(0.8);
+  @apply shadow-md;
 }
 .home-portfolio-section-carousel .carousel__slide--prev > .carousel__item {
   transform: scale(0.8);
+  @apply shadow-md;
 }
 .home-portfolio-section-carousel .carousel__slide--active > .carousel__item {
   transform: scale(1);
+  @apply shadow-xl;
 }
 
 /* Breakpoint below 768px */
@@ -151,7 +157,7 @@ const carouselBreakpoints = ref({
 }
 
 .home-portfolio-section-carousel .carousel__pagination-button {
-  @apply my-0 mx-1 w-2.5 h-2.5 rounded-full bg-purple-500 bg-opacity-40 transition-all ease-in-out duration-300;
+  @apply my-0 mx-1 w-2.5 h-2.5 rounded-full bg-black bg-opacity-40 transition-all ease-in-out duration-300;
 }
 
 .home-portfolio-section-carousel  .carousel__pagination-button--active {

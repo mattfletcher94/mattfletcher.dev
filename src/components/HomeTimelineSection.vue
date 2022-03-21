@@ -1,10 +1,10 @@
 <template>
-  <div class="relative block w-full mt-20">
+  <div class="relative block w-full md:mt-20">
     <div class="block">
       <div class="absolute top-0 left-0 w-2/3 h-full bg-gray-50" />
-      <div ref="container" class="container py-20">
+      <div ref="container" class="container pb-6 pt-12 md:pt-20 md:pb-12">
         <div class="prose text-left">
-          <Text type="heading-2" as="h3" class="mb-6 ">
+          <Text type="heading-2" as="h3" class="mb-6" weight="700">
             Work
             <span class="text-purple-500">Experience</span>
             <span class="hidden md:inline"> and <br></span>
@@ -19,10 +19,15 @@
             width: `calc(100vw - ${containerLeft}px)`,
           }"
         >
-          <ul
-            class="flex w-full mt-2 md:mt-12"
+          <div
+            ref="timelineSnap"
+            class="timeline-snap md:px-4"
+            @mousedown="handleTimelineSnapMouseDown"
+            @mouseup="handleTimelineSnapMouseUp"
+            @mousemove="handleTimelineSnapMouseMove"
+            @mouseleave="handleTimelineSnapMouseLeave"
           >
-            <li class="timeline-card z-10">
+            <div class="timeline-snap__item">
               <div class="flex flex-col justify-between h-full ">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
@@ -37,20 +42,15 @@
                 <div>
                   <Button
                     variant="secondary"
-                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    class="timeline-snap__item__btn"
                     @click="isOpen = true"
                   >
                     Read more
                   </Button>
                 </div>
               </div>
-            </li>
-            <li class="timeline-arrow">
-              <div class="flex h-full items-center">
-                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-              </div>
-            </li>
-            <li class="timeline-card">
+            </div>
+            <div class="timeline-snap__item">
               <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
@@ -58,27 +58,22 @@
                       September 2021
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
-                      Graduated from Plymouth University with a First Class Honours
+                      BSc Computer Science, First Class Honors
                     </Text>
                   </div>
                 </div>
                 <div>
                   <Button
                     variant="secondary"
-                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    class="timeline-snap__item__btn"
                     @click="isOpen = true"
                   >
                     Read more
                   </Button>
                 </div>
               </div>
-            </li>
-            <li class="timeline-arrow">
-              <div class="flex h-full items-center">
-                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-              </div>
-            </li>
-            <li class="timeline-card">
+            </div>
+            <div class="timeline-snap__item">
               <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
@@ -93,21 +88,15 @@
                 <div>
                   <Button
                     variant="secondary"
-                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    class="timeline-snap__item__btn"
                     @click="isOpen = true"
                   >
                     Read more
                   </Button>
                 </div>
               </div>
-            </li>
-
-            <li class="timeline-arrow">
-              <div class="flex h-full items-center">
-                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-              </div>
-            </li>
-            <li class="timeline-card">
+            </div>
+            <div class="timeline-snap__item">
               <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
@@ -115,28 +104,22 @@
                       September 2018
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
-                      Began pursuing a Computer Science degree at Plymouth University
+                      Started Studying Computer Science at Plymouth University
                     </Text>
                   </div>
                 </div>
                 <div>
                   <Button
                     variant="secondary"
-                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    class="timeline-snap__item__btn"
                     @click="isOpen = true"
                   >
                     Read more
                   </Button>
                 </div>
               </div>
-            </li>
-
-            <li class="timeline-arrow">
-              <div class="flex h-full items-center">
-                <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>
-              </div>
-            </li>
-            <li class="timeline-card">
+            </div>
+            <div class="timeline-snap__item">
               <div class="flex flex-col justify-between h-full">
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
@@ -144,22 +127,22 @@
                       April 2016
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
-                      My Developer journey began
+                      My journey as a Developer started
                     </Text>
                   </div>
                 </div>
                 <div>
                   <Button
                     variant="secondary"
-                    class="py-1.5 px-2 !text-xs !bg-transparent text-black !font-bold"
+                    class="timeline-snap__item__btn"
                     @click="isOpen = true"
                   >
                     Read more
                   </Button>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -179,6 +162,7 @@ import { onMounted, ref } from 'vue'
 const isOpen = ref(false)
 
 const container = ref<HTMLElement | null>(null)
+const timelineSnap = ref<HTMLElement | null>(null)
 const containerLeft = ref<number>(0)
 
 onMounted(() => {
@@ -186,38 +170,137 @@ onMounted(() => {
     return
 
   // Calculate container pixels from left side of screen including dyanmiac padding
-  const containerOffsetLeft = container.value.getBoundingClientRect().left
-  const containerPaddingLeft = parseInt(window.getComputedStyle(container.value).paddingLeft)
-  containerLeft.value = containerOffsetLeft + containerPaddingLeft
+  if (typeof window !== 'undefined') {
+    const containerOffsetLeft = container.value.getBoundingClientRect().left
+    const containerPaddingLeft = parseInt(window ? window.getComputedStyle(container.value).paddingLeft : '0')
+    containerLeft.value = containerOffsetLeft + containerPaddingLeft
+  }
 })
+
+const isTouchDevice = ref(typeof window !== 'undefined' ? window.matchMedia('(hover: none)').matches : false)
+const isDown = ref(false)
+const startX = ref(0)
+const scrollTop = ref(0)
+
+function handleTimelineSnapMouseDown(e: MouseEvent) {
+  if (!timelineSnap.value || isTouchDevice.value)
+    return
+  isDown.value = true
+  startX.value = e.pageX - timelineSnap.value.offsetLeft
+  scrollTop.value = timelineSnap.value.scrollLeft
+}
+
+function handleTimelineSnapMouseUp(e: MouseEvent) {
+  if (isTouchDevice.value)
+    return
+  isDown.value = false
+}
+
+function handleTimelineSnapMouseLeave(e: MouseEvent) {
+  if (isTouchDevice.value)
+    return
+  isDown.value = false
+}
+
+function handleTimelineSnapMouseMove(e: MouseEvent) {
+  if (!timelineSnap.value || isTouchDevice.value)
+    return
+  if (isDown.value) {
+    e.preventDefault()
+    const x = e.pageX - timelineSnap.value.offsetLeft
+    const walkX = (x - startX.value) * 2
+    timelineSnap.value.scrollLeft = scrollTop.value - walkX
+  }
+}
 
 </script>
 
 <style scoped>
-.timeline-card {
-  @apply shrink-0 align-top p-6 h-44 w-96 bg-white rounded-3xl shadow-xl;
-  margin-right: 30px;
+.timeline-snap {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1rem;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  @apply block w-full pb-12 cursor-grab overflow-x-scroll overflow-y-hidden md:overflow-x-hidden;
 }
-.timeline-card::before {
+.timeline-snap::-webkit-scrollbar {
+  display: none;
+}
+.timeline-snap__item {
+  @apply inline-block align-top p-6 h-44 w-[20rem] bg-white rounded-3xl shadow-xl mr-4;
+  scroll-snap-align: start;
+}
+
+.timeline-snap__item::before,
+.timeline-snap__item::after {
   content: "";
-  position: absolute;
-  right: -30px;
-  top: calc(50% - 10px);
-  height: 20px;
-  width: 30px;
-  background-color: white;
-  @apply shadow-lg
+  right: -1rem;
+  top: calc(50% - 8px);
+  @apply absolute shadow-lg bg-white w-4 h-4;
 }
-.timeline-card::after {
-  content: "";
-  position: absolute;
-  right: -40px;
-  top: calc(50% - 10px);
-  height: 20px;
-  width: 50px;
-  background-color: white;
+.timeline-snap__item::after {
+  right: -1.5rem;
+  @apply shadow-none w-8;
 }
-.timeline-arrow {
-  @apply shrink-0 align-top w-8 h-8 text-center bg-white shadow-lg hidden;
+
+.timeline-snap__item:last-child::before,
+.timeline-snap__item:last-child::after {
+  display: none;
 }
+
+.timeline-snap__item__btn {
+  @apply py-1.5 px-1 !text-xs !bg-transparent text-black !font-bold;
+}
+
+.timeline-snap__item:nth-child(1) {
+  z-index: 50;
+}
+.timeline-snap__item:nth-child(2) {
+  z-index: 49;
+}
+.timeline-snap__item:nth-child(3) {
+  z-index: 48;
+}
+.timeline-snap__item:nth-child(4) {
+  z-index: 47;
+}
+.timeline-snap__item:nth-child(5) {
+  z-index: 46;
+}
+.timeline-snap__item:nth-child(6) {
+  z-index: 45;
+}
+.timeline-snap__item:nth-child(7) {
+  z-index: 44;
+}
+.timeline-snap__item:nth-child(8) {
+  z-index: 43;
+}
+.timeline-snap__item:nth-child(9) {
+  z-index: 42;
+}
+.timeline-snap__item:nth-child(10) {
+  z-index: 41;
+}
+.timeline-snap__item:nth-child(11) {
+  z-index: 40;
+}
+.timeline-snap__item:nth-child(12) {
+  z-index: 39;
+}
+.timeline-snap__item:nth-child(13) {
+  z-index: 38;
+}
+.timeline-snap__item:nth-child(14) {
+  z-index: 37;
+}
+.timeline-snap__item:nth-child(15) {
+  z-index: 36;
+}
+
 </style>

@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
-import assetMap from './../assets/project-interactive-map.png'
-import assetMariaHocking from './../assets/project-mariahocking.png'
-import assetQuantum from './../assets/project-quantum.jpg'
-import assetPromobility from './../assets/project-promobility.png'
-import assetOnline2DShooter from './../assets/project-online-2d-shooter.png'
+import assetMap from './../assets/project-interactive-map.png?w=300&h=300&webp&imagetools'
+import assetMariaHocking from './../assets/project-mariahocking.png?w=300&h=300&webp&imagetools'
+import assetQuantum from './../assets/project-quantum.jpg?w=300&h=300&webp&imagetools'
+import assetPromobility from './../assets/project-promobility.png?w=300&h=300&webp&imagetools'
+import assetOnline2DShooter from './../assets/project-online-2d-shooter.png?w=300&h=300&webp&imagetools'
 
 export interface Project {
   title: string

@@ -1,14 +1,13 @@
 <template>
   <div v-once class="relative block w-full bg-white">
     <div class="absolute top-0 left-0 w-full h-2/3 bg-gray-50" />
-    <div class="container py-20">
+    <div class="container pt-12 md:pt-20 pb-20">
       <div class="block">
         <div class="grid grid-cols-12 gap-0 md:gap-12 h-full">
           <div class="col-span-12 md:col-span-4">
             <div class="prose mx-auto text-left w-full max-w-3xl">
-              <Text type="heading-2" as="h2" class="mb-6 ">
+              <Text type="heading-2" as="h2" class="mb-6" weight="700">
                 My <span class="text-purple-500">Skills</span>
-
                 <Button variant="primary" class="block md:hidden float-right top-2">
                   Resume
                   <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -29,7 +28,7 @@
             </div>
           </div>
           <div class="col-span-12 md:col-span-8">
-            <div class="block mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden" style="max-width: 900px">
+            <div class="block mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden">
               <TabGroup @change="handleChange">
                 <TabList class="tab-btns">
                   <div
@@ -132,7 +131,6 @@
                                   </Text>
                                 </div>
                                 <div v-if="skill.rating > 0" class="ml-auto">
-                                  <!-- Progress bar based on rating -->
                                   <div class="flex items-center" title="Competency level">
                                     <div class="w-12 h-3 rounded-full bg-gray-100 mr-2">
                                       <div
@@ -152,14 +150,6 @@
                                     <Text type="small" as="span" muted>
                                       {{ skill.rating * 20 }}%
                                     </Text>
-                                    <!--
-                                    <IconStar
-                                      v-for="star in 5"
-                                      :key="star"
-                                      class="w-4 h-4 text-yellow-500"
-                                      :class="[star <= skill.rating ? 'text-yellow-500' : 'text-gray-600']"
-                                    />
-                                    -->
                                   </div>
                                 </div>
                                 <div>

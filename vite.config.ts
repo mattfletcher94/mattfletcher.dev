@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import { imagetools } from 'vite-imagetools'
 import Components from 'unplugin-vue-components/vite'
 import generateSitemap from 'vite-ssg-sitemap'
 import vue from '@vitejs/plugin-vue'
@@ -14,7 +15,7 @@ export default defineConfig({
       manifest: {
         name: 'Matt Fletcher - Developer based in Plymouth, UK.',
         short_name: 'Matt Fletcher',
-        theme_color: '#a855f7',
+        theme_color: '#000000',
         icons: [
           {
             src: '/pwa-192x192.png',
@@ -38,6 +39,7 @@ export default defineConfig({
     Components({
       dts: true,
     }),
+    imagetools(),
   ],
 
   // @ts-expect-error Idk

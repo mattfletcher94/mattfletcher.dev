@@ -1,9 +1,14 @@
 <template>
-  <header class="fixed top-0 left-0 w-full bg-white z-10 backdrop-blur bg-opacity-80">
+  <header
+    class="fixed top-0 left-0 w-full bg-white z-[1000] backdrop-blur bg-opacity-90 transition-shadow ease-in-out duration-300"
+    :class="{
+      'shadow-sm': scrollY > 0
+    }"
+  >
     <div class="container h-16">
       <div class="flex items-center justify-between h-full">
         <div class="flex items-center space-x-4">
-          <button class="flex md:hidden items-center w-10 h-10 rounded-full focus-within:bg-black focus-within:text-white transition-colors">
+          <button aria-label="Open Menu" class="flex md:hidden items-center w-8 h-8 rounded-full focus-within:bg-black focus-within:text-white transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
             </svg>
@@ -81,6 +86,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
 import { useUiStore } from '../stores/ui'
 
 const uiStore = useUiStore()
@@ -124,6 +130,8 @@ uiStore.$subscribe((_, state) => {
 })
 
 handleScrollSpyChange(uiStore.scrollSpyActiveID)
+
+const { y: scrollY } = useWindowScroll()
 
 </script>
 
