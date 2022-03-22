@@ -1,17 +1,15 @@
 <template>
   <div class="relative block w-full bg-white ">
     <div class="container py-20 md:py-40">
-      <div class="block md:hidden absolute top-48 -right-28 blur-xl opacity-50">
-        <IllustrationSphere class="w-60 h-60" />
-      </div>
-      <div class="grid grid-cols-12 gap-0 md:gap-12 h-full">
-        <div class="col-span-12 md:col-span-7 self-center">
+      <div class="grid grid-cols-12 gap-0 lg:gap-12 h-full">
+        <div class="col-span-12 lg:col-span-7 self-center">
           <div class="flex items-center space-x-0 md:space-x-8 flex-wrap md:flex-nowrap text-left place-content-center md:place-content-start">
             <div class="shrink-0">
               <img
                 class="mask-squircle block h-40 w-40 rounded-lg object-cover object-center"
                 :src="assetMe"
                 alt="Matt Fletcher Avatar"
+                loading="lazy"
               >
             </div>
             <div class="mt-6 md:mt-0">
@@ -42,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="hidden md:flex col-span-5 self-center place-content-end">
+        <div class="hidden lg:flex col-span-5 self-center place-content-end">
           <div class="w-full h-auto p-8 bg-gray-50 rounded-2xl rotate-6">
             <div class="mx-auto" :style="{ maxWidth: '250px' }">
               <IllustrationCode class="block max-w-full w-full max-h-full h-full" />

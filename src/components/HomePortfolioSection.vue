@@ -20,7 +20,7 @@
           :settings="carouselSettings"
           :breakpoints="carouselBreakpoints"
         >
-          <Slide v-for="project in projectsStore.projects" :key="project.title" class="pb-12 px-2">
+          <Slide v-for="project in projectsStore.projects" :key="project.title" class="pb-12">
             <div class="carousel__item rounded-3xl bg-white overflow-hidden">
               <div class="block w-full text-left">
                 <div class="block w-full p-6 overflow-hidden">
@@ -28,11 +28,13 @@
                     class="absolute inset-0 w-full h-full object-center object-cover blur-3xl"
                     :src="project.image"
                     :alt="project.title"
+                    loading="lazy"
                   >
                   <img
                     class="rounded-lg block mx-auto object-cover object-center z-10 shadow-2xl"
                     :src="project.image"
                     :alt="project.title"
+                    loading="lazy"
                     :style="{
                       height: '200px',
                       width: '200px',

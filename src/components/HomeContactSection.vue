@@ -14,17 +14,22 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
               </Text>
-              <div class="hidden md:block">
-                <a href="https://github.com/mattfletcher94" target="_blank" class="no-underline">
-                  <Text>
-                    <IconGithub class="w-6 h-6 mr-2" /> github
-                  </Text>
-                </a>
-                <a href="https://github.com/mattfletcher94" target="_blank" class="no-underline">
-                  <Text>
-                    <IconGithub class="w-6 h-6 mr-2" /> mattfletcher94@outlook.com
-                  </Text>
-                </a>
+              <div class="block mb-6 md:mb-0">
+                <div class="flex items-center gap-4">
+                  <a
+                    href="https://github.com/mattfletcher94"
+                    target="_blank"
+                    class="w-10 h-10 rounded-full flex no-underline transition-all duration-300 hover:bg-black hover:text-white focus:bg-black focus:text-white"
+                  >
+                    <IconGithub class="w-6 h-6 mt-2 mx-auto" />
+                  </a>
+                  <a
+                    href="mailto:mattfletcher94@outlook.com"
+                    class="w-10 h-10 rounded-full flex no-underline transition-all duration-300 hover:bg-black hover:text-white focus:bg-black focus:text-white"
+                  >
+                    <IconEmail class="w-6 h-6 mt-2 mx-auto" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -113,7 +118,7 @@
                 type="submit"
                 class="w-full md:w-auto px-6 !py-2 mt-6 text-center transition-all duration-200 cursor-pointer rounded-full text-white bg-purple-500 hover:bg-purple-600 focus:bg-purple-600"
               >
-                Send message
+                Send message <IconSend class="w-5 h-5 ml-1" />
               </button>
             </form>
           </div>
