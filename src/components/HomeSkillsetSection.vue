@@ -16,8 +16,9 @@
                 </Button>
               </Text>
               <Text type="body" as="p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                I do not shy away from backend development and enjoy designing databases and building APIs. I have not included Javascript or HTML on the list below, since the skills listed imply these.
+                Since my development journey started, I have learned many different programming languages and frameworks.
+                My preferred framework is Vue with Tailwind for the front-end, and Nest.js for building API's.
+                I have not included the essentials such as HTML, CSS, Typescript, and OOP since they are implied from the listed skills.
               </Text>
               <Button variant="primary" class="hidden md:inline-block">
                 Resume

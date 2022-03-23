@@ -16,6 +16,7 @@ export default defineConfig({
         name: 'Matt Fletcher - Developer based in Plymouth, UK.',
         short_name: 'Matt Fletcher',
         theme_color: '#000000',
+        display: 'browser',
         icons: [
           {
             src: '/pwa-192x192.png',

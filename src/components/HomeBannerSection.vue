@@ -33,9 +33,10 @@
                 </svg>
                 Based in Plymouth, UK.
               </Text>
-              <Text type="body" as="p" class="mt-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              <Text type="body" as="p" class="mt-4">
+                I'm a self-motivated full-stack developer with a passion for building
+                user-centric web applications. I'm proficient in fundamental front-end and server-side languages,
+                with a strong emphasis on Vue, React, Express and MongoDB.
               </Text>
             </div>
           </div>

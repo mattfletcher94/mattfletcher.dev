@@ -8,7 +8,8 @@
             My <span class="text-purple-500">Projects</span>
           </Text>
           <Text type="body" as="p">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Being highly motivated and driven by the desire to learn and grow, I often spend my spare time working on
+            side-projects. Please see some of my side-projects and work I've done at Plymouth University below.
           </Text>
         </div>
       </div>

@@ -11,8 +11,8 @@
               </Text>
               <Text type="body" as="p">
                 <span class="block w-20 h-[4px] bg-purple-500 rounded-full mb-2" />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                Please feel free to contact me for any questions or inquiries.
+                I am always happy to talk dev!
               </Text>
               <div class="block mb-6 md:mb-0">
                 <div class="flex items-center gap-4">
