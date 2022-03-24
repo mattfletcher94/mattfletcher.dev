@@ -20,12 +20,14 @@
                     href="https://github.com/mattfletcher94"
                     target="_blank"
                     class="w-10 h-10 rounded-full flex no-underline transition-all duration-300 hover:bg-black hover:text-white focus:bg-black focus:text-white"
+                    aria-label="Github"
                   >
                     <IconGithub class="w-6 h-6 mt-2 mx-auto" />
                   </a>
                   <a
                     href="mailto:mattfletcher94@outlook.com"
                     class="w-10 h-10 rounded-full flex no-underline transition-all duration-300 hover:bg-black hover:text-white focus:bg-black focus:text-white"
+                    aria-label="Email"
                   >
                     <IconEmail class="w-6 h-6 mt-2 mx-auto" />
                   </a>
@@ -55,6 +57,7 @@
                   class="form-input peer"
                   placeholder="Your name"
                   autocomplete="off"
+                  required
                   style="outline:none;box-shadow: none!important;"
                 >
                 <label
@@ -82,6 +85,7 @@
                   class="form-input peer"
                   placeholder="Your email"
                   autocomplete="off"
+                  required
                   style="outline:none;box-shadow: none!important;"
                 >
                 <label
@@ -110,6 +114,7 @@
                   class="form-textarea"
                   placeholder="Your message"
                   autocomplete="off"
+                  required
                   style="outline:none;box-shadow: none!important;"
                   aria-label="Your message"
                 />

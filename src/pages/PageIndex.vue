@@ -23,11 +23,11 @@ import { useUiStore } from '../stores/ui'
 
 const uiStore = useUiStore()
 
-const sectionAbout = ref<null | HTMLElement>(null)
-const sectionSkills = ref<null | HTMLElement>(null)
-const sectionProjects = ref<null | HTMLElement>(null)
-const sectionExperience = ref<null | HTMLElement>(null)
-const sectionContact = ref<null | HTMLElement>(null)
+const sectionAbout = ref<HTMLElement>()
+const sectionSkills = ref<HTMLElement>()
+const sectionProjects = ref<HTMLElement>()
+const sectionExperience = ref<HTMLElement>()
+const sectionContact = ref<HTMLElement>()
 
 onMounted(() => {
   if (!sectionSkills.value || !sectionProjects.value || !sectionExperience.value || !sectionAbout.value || !sectionContact.value)
@@ -50,11 +50,19 @@ onMounted(() => {
 })
 
 useHead({
-  title: 'Matt Fletcher - Developer based in Plymouth, UK.',
+  title: 'Matt Fletcher - Full Stack Developer based in Plymouth, UK.',
   meta: [
     {
       name: 'description',
-      content: 'Website description',
+      content: 'self-motivated full-stack developer with a passion for building web applications, with a strong emphasis on Vue, React, Express and MongoDB',
+    },
+    {
+      name: 'keywords',
+      contenet: 'Matt Fletcher, Full Stack Developer, Plymouth, Vue.js, Portfolio',
+    },
+    {
+      name: 'author',
+      content: 'Matt Fletcher',
     },
   ],
 })

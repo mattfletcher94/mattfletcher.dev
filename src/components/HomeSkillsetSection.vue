@@ -8,7 +8,7 @@
             <div class="prose mx-auto text-left w-full max-w-3xl">
               <Text type="heading-2" as="h2" class="mb-6" weight="700">
                 My <span class="text-purple-500">Skills</span>
-                <Button variant="primary" class="block md:hidden float-right top-2">
+                <Button variant="primary" class="block md:hidden float-right top-2" aria-label="Resume">
                   Resume
                   <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -184,9 +184,9 @@
                                 'bg-gray-50': open,
                               }"
                             >
-                              <Text type="body" as="p">
-                                {{ skill.description }}
-                              </Text>
+                              <div class="prose">
+                                <Text type="body" as="p" v-html="skill.description" />
+                              </div>
                             </DisclosurePanel>
                           </transition>
                         </Disclosure>
