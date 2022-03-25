@@ -8,8 +8,7 @@
             My <span class="text-purple-500">Projects</span>
           </Text>
           <Text type="body" as="p">
-            Being highly motivated and driven by the desire to learn and grow, I often spend my spare time working on
-            side-projects. Please see some of my side-projects and work I've done at Plymouth University below.
+            Being highly motivated and driven by the desire to learn and grow, I often spend my spare time working on side-projects. Please see my side-projects and work I've done at Plymouth University below.
           </Text>
         </div>
       </div>
@@ -95,7 +94,7 @@
 import { ref } from 'vue'
 // @ts-expect-error Doesn't include the type
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
-import { useProjectsStore } from '../stores/projects'
+import { useProjectsStore } from '../../stores/projects'
 
 const projectsStore = useProjectsStore()
 

@@ -39,15 +39,7 @@
                     </Text>
                   </div>
                 </div>
-                <div>
-                  <Button
-                    variant="secondary"
-                    class="timeline-snap__item__btn"
-                    @click="isOpen = true"
-                  >
-                    Read more
-                  </Button>
-                </div>
+                <div />
               </div>
             </div>
             <div class="timeline-snap__item">
@@ -62,15 +54,7 @@
                     </Text>
                   </div>
                 </div>
-                <div>
-                  <Button
-                    variant="secondary"
-                    class="timeline-snap__item__btn"
-                    @click="isOpen = true"
-                  >
-                    Read more
-                  </Button>
-                </div>
+                <div />
               </div>
             </div>
             <div class="timeline-snap__item">
@@ -85,15 +69,7 @@
                     </Text>
                   </div>
                 </div>
-                <div>
-                  <Button
-                    variant="secondary"
-                    class="timeline-snap__item__btn"
-                    @click="isOpen = true"
-                  >
-                    Read more
-                  </Button>
-                </div>
+                <div />
               </div>
             </div>
             <div class="timeline-snap__item">
@@ -108,15 +84,7 @@
                     </Text>
                   </div>
                 </div>
-                <div>
-                  <Button
-                    variant="secondary"
-                    class="timeline-snap__item__btn"
-                    @click="isOpen = true"
-                  >
-                    Read more
-                  </Button>
-                </div>
+                <div />
               </div>
             </div>
             <div class="timeline-snap__item">
@@ -131,35 +99,31 @@
                     </Text>
                   </div>
                 </div>
-                <div>
-                  <Button
-                    variant="secondary"
-                    class="timeline-snap__item__btn"
-                    @click="isOpen = true"
-                  >
-                    Read more
-                  </Button>
-                </div>
+                <div />
               </div>
             </div>
           </div>
         </div>
+        <div class="prose text-left">
+          <Text type="body" as="h4" class="mb-2" weight="600">
+            Want to know more?
+          </Text>
+          <a href="/matt-fletcher-cv.DOCX" aria-label="Download Resume" download>
+            <Button variant="primary">
+              Download Resume
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </Button>
+          </a>
+        </div>
       </div>
     </div>
-    <BottomSheet :open="isOpen" @close="isOpen = false">
-      <template #content>
-        <div class="p-8">
-          content
-        </div>
-      </template>
-    </BottomSheet>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-
-const isOpen = ref(false)
 
 const container = ref<HTMLElement | null>(null)
 const timelineSnap = ref<HTMLElement | null>(null)

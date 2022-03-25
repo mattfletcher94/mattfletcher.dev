@@ -8,24 +8,26 @@
             <div class="prose mx-auto text-left w-full max-w-3xl">
               <Text type="heading-2" as="h2" class="mb-6" weight="700">
                 My <span class="text-purple-500">Skills</span>
-                <Button variant="primary" class="block md:hidden float-right top-2" aria-label="Resume">
+                <a href="/matt-fletcher-cv.DOCX" aria-label="Download Resume" download>
+                  <Button variant="primary" class="block md:hidden float-right top-2">
+                    Resume
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </Button>
+                </a>
+              </Text>
+              <Text type="body" as="p">
+                Since my development journey started, I have learned many programming languages and frameworks. My preferred framework is Vue with Tailwind for the front-end, and Nest.js for building API's. I have not included the essentials, such as HTML, CSS, Typescript, and OOP, since they are implied from the listed skills.
+              </Text>
+              <a href="/matt-fletcher-cv.DOCX" download>
+                <Button variant="primary" class="hidden md:inline-block">
                   Resume
                   <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
                 </Button>
-              </Text>
-              <Text type="body" as="p">
-                Since my development journey started, I have learned many different programming languages and frameworks.
-                My preferred framework is Vue with Tailwind for the front-end, and Nest.js for building API's.
-                I have not included the essentials such as HTML, CSS, Typescript, and OOP since they are implied from the listed skills.
-              </Text>
-              <Button variant="primary" class="hidden md:inline-block">
-                Resume
-                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </Button>
+              </a>
             </div>
           </div>
           <div class="col-span-12 md:col-span-8">
@@ -178,15 +180,13 @@
                             leave-to-class="transform -translate-x-4 opacity-0"
                           >
                             <DisclosurePanel
-                              class="p-6"
+                              class="px-6 pb-6 pt-2"
                               :class="{
                                 'bg-white': !open,
                                 'bg-gray-50': open,
                               }"
                             >
-                              <div class="prose">
-                                <Text type="body" as="p" v-html="skill.description" />
-                              </div>
+                              <div v-if="skill.content" class="prose prose-black" v-html="skill.content" />
                             </DisclosurePanel>
                           </transition>
                         </Disclosure>
@@ -215,7 +215,7 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import { ref } from 'vue'
-import { useSkillsStore } from '../stores/skills'
+import { useSkillsStore } from '../../stores/skills'
 
 const skillsStore = useSkillsStore()
 const activeTabIndex = ref<number>(0)

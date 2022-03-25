@@ -54,6 +54,6 @@
 </template>
 
 <script lang="ts" setup>
-import assetMe from './../assets/me.jpg?w=300&h=300&webp&imagetools'
+import assetMe from '../../assets/me.jpg?w=300&h=300&webp&imagetools'
 
 </script>

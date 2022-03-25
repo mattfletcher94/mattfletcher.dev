@@ -1,14 +1,23 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { imagetools } from 'vite-imagetools'
 import Components from 'unplugin-vue-components/vite'
 import generateSitemap from 'vite-ssg-sitemap'
 import vue from '@vitejs/plugin-vue'
+import mdPlugin, { Mode } from 'vite-plugin-markdown'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '~/': `${path.resolve(__dirname, 'src')}/`,
+    },
+  },
   plugins: [
-    vue(),
+    vue({
+      include: [/\.vue$/],
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
@@ -38,12 +47,16 @@ export default defineConfig({
       },
     }),
     Components({
-      dts: true,
+      extensions: ['vue'],
+      include: [/\.vue$/, /\.vue\?vue/],
+      dts: 'src/components.d.ts',
+    }),
+    mdPlugin({
+      mode: [Mode.HTML],
     }),
     imagetools(),
   ],
 
-  // @ts-expect-error Idk
   ssgOptions: {
     script: 'async',
     formatting: 'minify',

@@ -10,12 +10,9 @@
     >
       <div
         class="fixed inset-0 overflow-hidden left-0 right-0"
-        :style="{
-          bottom: bottom + 'px',
-        }"
         style="z-index: 1000"
       >
-        <div class="flex items-end h-screen w-screen pt-12">
+        <div class="flex items-end h-full w-full pt-12">
           <TransitionChild
             as="template"
             enter="duration-300"
@@ -67,7 +64,6 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 import { nextTick, ref, watch } from 'vue'
-import { useScreenSafeArea } from '@vueuse/core'
 
 // Props
 const props = defineProps({
@@ -102,13 +98,6 @@ const handleClose = () => {
 const dialogHeader = ref<null | HTMLElement>(null)
 const dialogContent = ref<null | HTMLElement>(null)
 const dialogFooter = ref<null | HTMLElement>(null)
-
-const {
-  top,
-  right,
-  bottom,
-  left,
-} = useScreenSafeArea()
 
 // Content height
 const contentHeight = ref('calc(100%- 4rem')

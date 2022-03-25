@@ -1,9 +1,10 @@
 import { ViteSSG } from 'vite-ssg'
 import type { RouteRecordRaw } from 'vue-router'
 import { useRegisterSW } from 'virtual:pwa-register/vue'
-import App from './App.vue'
 import './css/index.css'
 import 'vue3-carousel/dist/carousel.css'
+
+import App from './App.vue'
 import { pinia } from './modules/pinia'
 import PageIndex from './pages/PageIndex.vue'
 

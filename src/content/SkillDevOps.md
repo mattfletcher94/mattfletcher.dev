@@ -1,0 +1,3 @@
+My experience with DevOps comes from settings up pipelines to deploy applications. I have used Travis multiple times to run a deploy pipeline that runs Unit tests and integration tests before deploying to a live server.
+
+I also have experience writing Docker and Docker Compose files to run projects within a Docker container. This is an area I am improving on in my own time - I am currently at the place where I cannot write a docker file from the top of my head, but know the right questsions to find the right answers.
