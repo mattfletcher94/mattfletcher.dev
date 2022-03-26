@@ -109,18 +109,18 @@ watch(() => props.open, async(open) => {
   await nextTick()
   const headerHeight = Math.ceil(dialogHeader.value?.getBoundingClientRect().height || 0)
   const footerHeight = Math.ceil(dialogFooter.value?.getBoundingClientRect().height || 0)
-  contentHeight.value = `calc(100% - ${headerHeight + footerHeight}px)`
+  contentHeight.value = `calc(100vh - ${headerHeight + footerHeight}px - 3rem)`
 })
 
 </script>
 
 <style scoped>
 .dialog-wrapper {
-  @apply flex md:items-center items-end h-full w-full pt-12 md:p-6;
+  @apply flex md:items-center items-end h-full w-full pt-24 md:p-6;
 }
 
 .dialog {
-  @apply w-full mx-auto h-full;
+  @apply w-full mx-auto;
   @apply bg-white rounded-b-none rounded-t-3xl md:rounded-3xl shadow-2xl overflow-hidden ring-1 ring-black ring-opacity-5;
 }
 .dialog-header {

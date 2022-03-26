@@ -4,7 +4,6 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BottomSheet: typeof import('./components/Common/Modal.vue')['default']
     Button: typeof import('./components/Common/Button.vue')['default']
     HomeBannerSection: typeof import('./components/Home/HomeBannerSection.vue')['default']
     HomeContactSection: typeof import('./components/Home/HomeContactSection.vue')['default']

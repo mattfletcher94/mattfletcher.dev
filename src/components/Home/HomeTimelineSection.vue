@@ -32,7 +32,7 @@
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
                     <Text type="small" as="span">
-                      July 2022 -> present
+                      Current role
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
                       Full time Developer at Pitched
@@ -47,10 +47,10 @@
                 <div>
                   <div class="prose mx-auto text-left whitespace-normal">
                     <Text type="small" as="span" muted>
-                      September 2021
+                      July 2021
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
-                      BSc Computer Science, First Class Honors
+                      Completed my BSc Computer Science degree with a First Class Honors.
                     </Text>
                   </div>
                 </div>
@@ -65,7 +65,7 @@
                       July 2020
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
-                      Completed 1 year work placement at Pitched
+                      Finished my one year work placement at Pitched
                     </Text>
                   </div>
                 </div>
@@ -95,7 +95,7 @@
                       April 2016
                     </Text>
                     <Text type="body" weight="600" as="h4" class="mt-0">
-                      My journey as a Developer started
+                      My journey as a Developer started.
                     </Text>
                   </div>
                 </div>
