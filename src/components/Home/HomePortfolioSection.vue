@@ -20,7 +20,7 @@
           :settings="carouselSettings"
           :breakpoints="carouselBreakpoints"
         >
-          <Slide v-for="project in projectsStore.projects" :key="project.title" class="pb-12">
+          <Slide v-for="project in projects" :key="project.title" class="pb-12">
             <div class="carousel__item rounded-3xl bg-white overflow-hidden">
               <div class="block w-full text-left">
                 <div class="block w-full p-6 overflow-hidden">
@@ -75,9 +75,32 @@
                     </div>
                     <div class="absolute right-0 top-0 h-full bg-gradient-to-r from-transparent to-white w-8 pointer-events-none" />
                   </div>
-                  <Button variant="secondary" class="w-full">
+                  <Button
+                    variant="secondary"
+                    class="w-full"
+                    @click="project.isOpen = true"
+                  >
                     Read more
                   </Button>
+                  <Modal
+                    :open="project.isOpen"
+                    @close="project.isOpen = false"
+                  >
+                    <template #header>
+                      <div class="p-6 border-b border-b-gray-200">
+                        <Text
+                          type="heading-5"
+                          weight="600"
+                          as="h3"
+                        >
+                          {{ project.title }}
+                        </Text>
+                      </div>
+                    </template>
+                    <template #content>
+                      <div v-if="project.content" class="prose p-6" v-html="project.content" />
+                    </template>
+                  </Modal>
                 </div>
               </div>
             </div>
@@ -97,6 +120,11 @@ import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import { useProjectsStore } from '../../stores/projects'
 
 const projectsStore = useProjectsStore()
+
+const projects = ref(projectsStore.projects.map(project => ({
+  ...project,
+  isOpen: false,
+})))
 
 const carouselSettings = ref({
   itemsToShow: 1.2,

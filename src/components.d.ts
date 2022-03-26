@@ -4,7 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BottomSheet: typeof import('./components/Common/BottomSheet.vue')['default']
+    BottomSheet: typeof import('./components/Common/Modal.vue')['default']
     Button: typeof import('./components/Common/Button.vue')['default']
     HomeBannerSection: typeof import('./components/Home/HomeBannerSection.vue')['default']
     HomeContactSection: typeof import('./components/Home/HomeContactSection.vue')['default']
@@ -38,6 +38,7 @@ declare module 'vue' {
     IllustrationCode: typeof import('./components/Illustration/IllustrationCode.vue')['default']
     IllustrationSphere: typeof import('./components/Illustration/IllustrationSphere.vue')['default']
     MobileMenu: typeof import('./components/MobileMenu.vue')['default']
+    Modal: typeof import('./components/Common/Modal.vue')['default']
     SmoothReflow: typeof import('./components/Common/SmoothReflow.vue')['default']
     Text: typeof import('./components/Common/Text.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']

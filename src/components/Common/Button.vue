@@ -42,7 +42,7 @@ const props = defineProps({
 
 </script>
 
-<style scoped>
+<style>
 .button {
   font-size: 0.9rem;
   line-height: 1.2;

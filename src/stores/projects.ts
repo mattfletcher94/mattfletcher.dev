@@ -1,4 +1,7 @@
 import { defineStore } from 'pinia'
+import { html as ProjectInteractiveMapContent } from '../content/ProjectInteractiveMap.md'
+import { html as ProjectOnlineShooterContent } from '../content/ProjectOnlineShooter.md'
+import { html as ProjectQuantumSupremacyContent } from '../content/ProjectQuantumSupremacy.md'
 import assetMap from './../assets/project-interactive-map.png?w=300&h=300&webp&imagetools'
 import assetMariaHocking from './../assets/project-mariahocking.png?w=300&h=300&webp&imagetools'
 import assetQuantum from './../assets/project-quantum.jpg?w=300&h=300&webp&imagetools'
@@ -9,6 +12,7 @@ export interface Project {
   title: string
   slug: string
   description: string
+  content?: string
   image: string
   link: string
   type: string
@@ -22,15 +26,17 @@ export const useProjectsStore = defineStore('projects', {
         title: 'Interactive Map',
         slug: '',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+        content: ProjectInteractiveMapContent,
         image: assetMap,
         link: '/portfolio/interactive-map',
         type: 'Full Stack Project',
         tags: ['Vue', 'Bootstrap', 'REST API', 'MongoDB'],
       },
       {
-        title: 'Multiplayer 2D Shooter',
+        title: 'Online 2D Shooter',
         slug: '',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+        content: ProjectOnlineShooterContent,
         image: assetOnline2DShooter,
         link: '/portfolio/2d-shooter',
         type: 'Full Stack Project',
@@ -40,6 +46,7 @@ export const useProjectsStore = defineStore('projects', {
         title: 'Quantum Supremacy',
         slug: '',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
+        content: ProjectQuantumSupremacyContent,
         image: assetQuantum,
         link: '/portfolio/quantum-supremacy',
         type: 'Scientific Research Report',
