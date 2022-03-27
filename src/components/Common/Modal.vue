@@ -100,7 +100,7 @@ const dialogContent = ref<null | HTMLElement>(null)
 const dialogFooter = ref<null | HTMLElement>(null)
 
 // Content height
-const contentHeight = ref('calc(100%- 4rem')
+const contentHeight = ref('calc(100% -6rem')
 
 // Watch open prop
 watch(() => props.open, async(open) => {
@@ -109,14 +109,14 @@ watch(() => props.open, async(open) => {
   await nextTick()
   const headerHeight = Math.ceil(dialogHeader.value?.getBoundingClientRect().height || 0)
   const footerHeight = Math.ceil(dialogFooter.value?.getBoundingClientRect().height || 0)
-  contentHeight.value = `calc(100vh - ${headerHeight + footerHeight}px - 3rem)`
+  contentHeight.value = `calc(100vh - ${headerHeight + footerHeight}px - 8rem)`
 })
 
 </script>
 
 <style scoped>
 .dialog-wrapper {
-  @apply flex md:items-center items-end h-full w-full pt-24 md:p-6;
+  @apply flex items-end md:items-center h-full w-full;
 }
 
 .dialog {

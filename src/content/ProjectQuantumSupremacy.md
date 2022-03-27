@@ -1,8 +1,8 @@
 This project required me to write a scientific research paper
 on a topic related to Computer Science. I decided to write 
-about Quantum Computing, since this is a topic that interests me.
-Althouh report writing is not my favourite task,
-this is my best written work and I received a very strong First.
+about Quantum Computing since this topic interests me.
+Although report writing is not my favourite task,
+this is my best-written work received a strong First.
 
 ### Report Snippet
 The concept of a quantum computer evolved out of the issues raised by Richard Feynman in 
