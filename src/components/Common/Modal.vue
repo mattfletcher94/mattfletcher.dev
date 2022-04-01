@@ -29,11 +29,11 @@
           <TransitionChild
             as="template"
             enter="duration-300 ease-in-out"
-            enter-from="opacity-0 translate-y-2/4 md:translate-y-0 md:scale-95"
+            enter-from="opacity-0 scale-100 translate-y-4 md:translate-y-0 md:scale-95"
             enter-to="opacity-100 translate-y-0"
             leave="duration-300 ease-in-out"
             leave-from="opacity-100 translate-y-0"
-            leave-to="opacity-0 translate-y-2/4 md:translate-y-0 md:scale-95"
+            leave-to="opacity-0 scale-100 translate-y-4 md:translate-y-0 md:scale-95"
           >
             <div
               class="dialog"
@@ -100,7 +100,7 @@ const dialogContent = ref<null | HTMLElement>(null)
 const dialogFooter = ref<null | HTMLElement>(null)
 
 // Content height
-const contentHeight = ref('calc(100% -6rem')
+const contentHeight = ref('calc(100% - 6rem')
 
 // Watch open prop
 watch(() => props.open, async(open) => {
@@ -109,7 +109,7 @@ watch(() => props.open, async(open) => {
   await nextTick()
   const headerHeight = Math.ceil(dialogHeader.value?.getBoundingClientRect().height || 0)
   const footerHeight = Math.ceil(dialogFooter.value?.getBoundingClientRect().height || 0)
-  contentHeight.value = `calc(100vh - ${headerHeight + footerHeight}px - 8rem)`
+  contentHeight.value = `calc(100vh - ${headerHeight + footerHeight}px - 10rem)`
 })
 
 </script>

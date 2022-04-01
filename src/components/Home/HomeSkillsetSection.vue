@@ -173,11 +173,11 @@
                           </DisclosureButton>
                           <transition
                             enter-active-class="transition duration-300 ease-out"
-                            enter-from-class="transform -translate-x-4 opacity-0"
-                            enter-to-class="transform translate-x-0 opacity-100"
+                            enter-from-class="transform -translate-y-4 opacity-0"
+                            enter-to-class="transform translate-y-0 opacity-100"
                             leave-active-class="transition duration-300 ease-out"
-                            leave-from-class="transform translate-x-0 opacity-100"
-                            leave-to-class="transform -translate-x-4 opacity-0"
+                            leave-from-class="transform translate-y-0 opacity-100"
+                            leave-to-class="transform -translate-y-4 opacity-0"
                           >
                             <DisclosurePanel
                               class="px-6 pb-6 pt-2"

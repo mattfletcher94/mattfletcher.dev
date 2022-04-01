@@ -12,7 +12,7 @@
         class="fixed inset-0 overflow-hidden"
         style="z-index: 1000"
       >
-        <div class="flex items-center h-screen w-screen">
+        <div class="flex items-center h-full w-full">
           <TransitionChild
             as="template"
             enter="duration-300"
