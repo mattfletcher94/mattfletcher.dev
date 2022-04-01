@@ -41,8 +41,9 @@
               <div ref="dialogHeader" class="dialog-header">
                 <div class="block p-4 border-b border-b-gray-200">
                   <div class="flex items-center">
-                    <router-link to="#section-about">
-                      <Text weight="600" class="">
+                    <router-link to="#section-about" aria-label="About section">
+                      <img :src="assetAvatar" width="30" height="30" alt="Matt Fletcher Avatar" class="inline-block  align-middle mr-2">
+                      <Text weight="600" class="inline-block align-middle">
                         Matt Fletcher
                       </Text>
                     </router-link>
@@ -146,6 +147,7 @@ import {
 } from '@headlessui/vue'
 import { nextTick, ref, watch } from 'vue'
 import { useUiStore } from '../stores/ui'
+import assetAvatar from '../assets/avatar.png?w=300&h=300&webp&imagetools'
 
 // Props
 const props = defineProps({
@@ -209,7 +211,7 @@ watch(() => props.open, async(open) => {
 
 .nav-item::before {
   content: "";
-  @apply absolute top-0 left-0 w-[4px] h-full rounded-full bg-purple-500 opacity-0 transition-opacity duration-300;
+  @apply absolute top-0 left-0 w-[4px] h-full rounded-full bg-primary-500 opacity-0 transition-opacity duration-300;
 }
 
 .nav-item--active::before {

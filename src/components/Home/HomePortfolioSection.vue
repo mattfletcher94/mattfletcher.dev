@@ -4,8 +4,8 @@
     <div class="container">
       <div class="block">
         <div class="prose mx-auto text-center w-full max-w-2xl">
-          <Text type="heading-2" as="h2" class="mb-6" weight="700">
-            My <span class="text-purple-500">Projects</span>
+          <Text type="heading-2" as="h2" class="mb-6" weight="600">
+            My <span class="text-primary-500">Projects</span>
           </Text>
           <Text type="body" as="p">
             Being highly motivated and driven by the desire to learn and grow, I often spend my spare time working on side-projects. Please see my side-projects and work I've done at Plymouth University below.

@@ -2,10 +2,10 @@
   <button
     :class="{
       'button text-center transition-all duration-200 cursor-pointer rounded-full': true,
-      'text-white bg-purple-500 hover:bg-purple-600 focus:bg-purple-600': props.variant === 'primary',
+      'text-white bg-primary-500 hover:bg-primary-600 focus:bg-primary-600': props.variant === 'primary',
       'text-white bg-black hover:bg-gray-900 focus:bg-gray-900': props.variant === 'secondary',
 
-      'text-purple-500 bg-transparent border-2 border-purple-500 hover:bg-purple-500 focus:bg-purple-500 hover:text-white focus:text-white': props.variant === 'primary-outline',
+      'text-primary-500 bg-transparent border-2 border-primary-500 hover:bg-primary-500 focus:bg-primary-500 hover:text-white focus:text-white': props.variant === 'primary-outline',
       'text-black bg-transparent border-2 border-black hover:bg-black focus:bg-black hover:text-white focus:text-white': props.variant === 'secondary-outline',
 
       'px-6 py-2.5': !props.circle,

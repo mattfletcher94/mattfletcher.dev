@@ -4,13 +4,13 @@
       <div class="absolute top-0 left-0 w-2/3 h-full bg-gray-50" />
       <div ref="container" class="container pb-6 pt-12 md:pt-20 md:pb-12">
         <div class="prose text-left">
-          <Text type="heading-2" as="h3" class="mb-6" weight="700">
+          <Text type="heading-2" as="h3" class="mb-6" weight="600">
             Work
-            <span class="text-purple-500">Experience</span>
+            <span class="text-primary-500">Experience</span>
             <span class="hidden md:inline"> and <br></span>
             <span class="inline md:hidden"> / </span>
             Acamdemic
-            <span class="text-purple-500">Achievements</span>
+            <span class="text-primary-500">Achievements</span>
           </Text>
         </div>
         <div
@@ -105,10 +105,10 @@
           </div>
         </div>
         <div class="prose text-left">
-          <Text type="body" as="h4" class="mb-2" weight="600">
+          <Text type="small" as="h4" class="mb-2" weight="600">
             Want to know more?
           </Text>
-          <a href="/matt-fletcher-cv.DOCX" aria-label="Download Resume" download>
+          <a href="/matt-fletcher-cv.pdf" aria-label="Download Resume" download>
             <Button variant="primary">
               Download Resume
               <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">

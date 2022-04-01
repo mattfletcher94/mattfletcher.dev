@@ -6,11 +6,11 @@
         <div class="grid grid-cols-12 gap-0 md:gap-12 h-full">
           <div class="col-span-12 md:col-span-5">
             <div class="prose text-left">
-              <Text type="heading-2" as="h3" class="mb-8 md:mb-16" weight="700">
-                <span class="text-black">Contact</span> me
+              <Text type="heading-2" as="h3" class="mb-8 md:mb-16" weight="600">
+                Contact me
               </Text>
               <Text type="body" as="p">
-                <span class="block w-20 h-[4px] bg-purple-500 rounded-full mb-2" />
+                <span class="block w-20 h-[4px] bg-primary-500 rounded-full mb-2" />
                 Please feel free to contact me for any questions or inquiries.
                 I am always happy to talk dev!
               </Text>
@@ -121,7 +121,7 @@
               </div>
               <button
                 type="submit"
-                class="w-full md:w-auto px-6 !py-2 mt-6 text-center transition-all duration-200 cursor-pointer rounded-full text-white bg-purple-500 hover:bg-purple-600 focus:bg-purple-600"
+                class="w-full md:w-auto px-6 !py-2 mt-6 text-center transition-all duration-200 cursor-pointer rounded-full text-white bg-primary-500 hover:bg-primary-600 focus:bg-primary-600"
               >
                 Send message <IconSend class="w-5 h-5 ml-1" />
               </button>
@@ -139,10 +139,10 @@
 
 <style scoped>
 .form-input {
-  @apply border-[1px] border-gray-200 w-full rounded-lg px-4 pb-2 pt-6 h-auto placeholder-transparent focus:outline-none focus:border-purple-500 shadow-none ring-0 transition-all;
+  @apply border-[1px] border-gray-200 w-full rounded-lg px-4 pb-2 pt-6 h-auto placeholder-transparent focus:outline-none focus:border-primary-500 shadow-none ring-0 transition-all;
 }
 .form-textarea {
-  @apply resize-none border-[1px] border-gray-200 w-full rounded-lg p-4 h-auto placeholder-black focus:outline-none focus:border-purple-500 shadow-none ring-0 transition-all;
+  @apply resize-none border-[1px] border-gray-200 w-full rounded-lg p-4 h-auto placeholder-black focus:outline-none focus:border-primary-500 shadow-none ring-0 transition-all;
 }
 .form-label {
   @apply

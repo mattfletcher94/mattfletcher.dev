@@ -36,6 +36,7 @@ declare module 'vue' {
     IconWordpress: typeof import('./components/Icon/IconWordpress.vue')['default']
     IllustrationCode: typeof import('./components/Illustration/IllustrationCode.vue')['default']
     IllustrationSphere: typeof import('./components/Illustration/IllustrationSphere.vue')['default']
+    IllustrationWaves: typeof import('./components/Illustration/IllustrationWaves.vue')['default']
     MobileMenu: typeof import('./components/MobileMenu.vue')['default']
     Modal: typeof import('./components/Common/Modal.vue')['default']
     SmoothReflow: typeof import('./components/Common/SmoothReflow.vue')['default']

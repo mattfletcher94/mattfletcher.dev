@@ -17,8 +17,9 @@
               <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
             </svg>
           </button>
-          <router-link class="nav-item" to="#section-about">
-            <Text weight="600" class="">
+          <router-link class="nav-item" to="#section-about" aria-label="About section">
+            <img :src="assetAvatar" width="30" height="30" alt="Matt Fletcher Avatar" class="inline-block mr-2">
+            <Text weight="600">
               Matt Fletcher
             </Text>
           </router-link>
@@ -63,7 +64,7 @@
                 Contact
               </Text>
             </router-link>
-            <a href="/matt-fletcher-cv.DOCX" download aria-label="Download resume">
+            <a href="/matt-fletcher-cv.pdf" download aria-label="Download resume">
               <Button>
                 Resume
                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -74,7 +75,7 @@
           </div>
         </div>
         <div class="flex md:hidden">
-          <a href="/matt-fletcher-cv.DOCX" download aria-label="Download resume">
+          <a href="/matt-fletcher-cv.pdf" download aria-label="Download resume">
             <Button>
               Resume
               <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -96,6 +97,7 @@
 import { ref } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
 import { useUiStore } from '../stores/ui'
+import assetAvatar from '../assets/avatar.png?w=300&h=300&webp&imagetools'
 
 const uiStore = useUiStore()
 
@@ -164,7 +166,7 @@ const { y: scrollY } = useWindowScroll()
 }
 
 .nav-slider {
-  @apply absolute w-0 left-0 bottom-0 h-1 bg-purple-500 rounded-full transition-all ease-in-out opacity-0;
+  @apply absolute w-0 left-0 bottom-0 h-1 bg-primary-500 rounded-full transition-all ease-in-out opacity-0;
   transition-duration: 500ms;
   transform-origin: center;
 }

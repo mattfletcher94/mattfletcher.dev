@@ -20,7 +20,7 @@
                 class=""
               >
                 Hi, I'm Matt.
-                <span class="text-purple-500 block md:inline">Full stack developer.</span>
+                <span class="text-primary-500 block md:inline">Full stack developer.</span>
               </Text>
               <Text
                 type="body"

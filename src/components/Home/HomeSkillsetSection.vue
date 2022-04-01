@@ -6,9 +6,9 @@
         <div class="grid grid-cols-12 gap-0 md:gap-12 h-full">
           <div class="col-span-12 md:col-span-4">
             <div class="prose mx-auto text-left w-full max-w-3xl">
-              <Text type="heading-2" as="h2" class="mb-6" weight="700">
-                My <span class="text-purple-500">Skills</span>
-                <a href="/matt-fletcher-cv.DOCX" aria-label="Download Resume" download>
+              <Text type="heading-2" as="h2" class="mb-6" weight="600">
+                My <span class="text-primary-500">Skills</span>
+                <a href="/matt-fletcher-cv.pdf" aria-label="Download Resume" download>
                   <Button variant="primary" class="block md:hidden float-right top-2">
                     Resume
                     <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -20,7 +20,7 @@
               <Text type="body" as="p">
                 Since my development journey started, I have learned many programming languages and frameworks. My preferred framework is Vue with Tailwind for the front-end, and Nest.js for building API's. I have not included the essentials, such as HTML, CSS, Typescript, and OOP, since they are implied from the listed skills.
               </Text>
-              <a href="/matt-fletcher-cv.DOCX" download aria-label="Download resume">
+              <a href="/matt-fletcher-cv.pdf" download aria-label="Download resume">
                 <Button variant="primary" class="hidden md:inline-block">
                   Resume
                   <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
