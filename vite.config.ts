@@ -61,7 +61,9 @@ export default defineConfig({
     script: 'async',
     formatting: 'minify',
     onFinished() {
-      generateSitemap()
+      generateSitemap({
+        hostname: 'https://mattfletcher.name',
+      })
     },
   },
   optimizeDeps: {
