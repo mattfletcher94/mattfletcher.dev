@@ -16,8 +16,8 @@ interested in fishing might want to reserve a caravan near the fishing lake.
 
 #### Project Deliverables
 The Interactive Holiday Park Map can be broken down into a collection of deliverables, 
-each with its own set of tasks and priorities. These deliverables need to be reached 
-before the application can be published. Each project has both end-to-end and unit tests.
+each with its own set of tasks and priorities. These deliverables were reached 
+before the application was published. Each project has both end-to-end and unit tests.
 
 #### Web Application: Back Office
 The first application, referred to as the Back Office, will be for Holiday Park owners to 
