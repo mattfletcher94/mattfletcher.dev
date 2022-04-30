@@ -66,6 +66,7 @@ import {
 import { nextTick, ref, watch } from 'vue'
 
 // Props
+
 const props = defineProps({
   open: {
     type: Boolean,

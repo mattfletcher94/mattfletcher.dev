@@ -1,5 +1,9 @@
 This project was my dissertation at Plymouth University and received
-a strong first. Please see the demo <a href="https://youtu.be/Hku3ORswnwE" target="_blank">here</a>.
+a strong first. 
+
+<a href="https://github.com/mattfletcher94/interactive-map" target="_blank">See Github Repo</a>
+
+<a href="https://youtu.be/Hku3ORswnwE" target="_blank">See Demo Video</a>.
 
 #### Objectives
 The Interactive Holiday Park Map project's main objective was to make the process of 
@@ -25,21 +29,14 @@ create and annotate their interactive maps. It will be set out like an admin das
 and require the user to log in to access it. This application was built using
 Vue and BootstrapVue, along with Pixi.js to render the map. 
 
-<a href="https://github.com/mattfletcher94/interactive-map-back-office" target="_blank">See GitHub Repo</a>
-
 #### Web Application: Embedded Map
 The second application, referred to as the Embedded Map, will present the interactive 
 Map to Holiday searchers. The application can be linked directly or embedded onto 
 Holiday Parks' websites and works equally well on desktop and mobile devices.
 This application was built using Vue, along with Pixi.js to render the map.
 
-<a href="https://github.com/mattfletcher94/interactive-map-iframe-embed" target="_blank">See GitHub Repo</a>
-
-
 #### REST API
 The REST API, which drives both web applications and follow standard REST 
 protocol. Some routes are protected using a JWT authentication mechanism. The 
 REST API provides developers with a page of auto-generated documentation.
 The REST API was built using Node, Express, TSOA and Mongoose with a MongoDB.
-
-<a href="https://github.com/mattfletcher94/interactive-map-api" target="_blank">See GitHub Repo</a>

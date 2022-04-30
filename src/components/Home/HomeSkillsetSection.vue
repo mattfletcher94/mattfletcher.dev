@@ -18,7 +18,7 @@
                 </a>
               </Text>
               <Text type="body" as="p">
-                Since my development journey started, I have learned many programming languages and frameworks. My preferred framework is Vue with Tailwind for the front-end, and Nest.js for building API's. I have not included the essentials, such as HTML, CSS, Typescript, and OOP, since they are implied from the listed skills.
+                Since my development journey started, I have learned many programming languages and frameworks. My preferred framework is Vue with Tailwind for the front-end, and Nest.js for building API's.
               </Text>
               <a href="/matt-fletcher-cv.pdf" download aria-label="Download resume">
                 <Button variant="primary" class="hidden md:inline-block">
