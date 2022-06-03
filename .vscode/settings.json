@@ -1,0 +1,16 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+    },
+    //"files.associations": {
+    //  "*.css": "postcss",
+    //  "*.scss": "postcss"
+    //},
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2,
+    "volar.formatting.printWidth": 200,
+    "eslint.alwaysShowStatus": true,
+    "volar.takeOverMode.enabled": true,
+    //"css.lint.unknownAtRules": "ignore"
+  }
+  

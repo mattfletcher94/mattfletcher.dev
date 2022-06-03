@@ -1,1 +1,0 @@
-Many of the Wordpress websites I have developed are using Bootstrap and SCSS. However, I have since learned Tailwind CSS and Post CSS, which I consider a much more modern and clean approach, as they integrate well into frameworks such as Vue and React. My CSS skills are excellent - I have no trouble converting design assets into code.

@@ -1,1 +1,0 @@
-My experience with .Net mainly comes from University, although I have confidently jumped into .Net projects at my current employment when required. I have used Entity Framework and Microsoft SQL Server to build API routes. 

@@ -1,7 +1,10 @@
 {
-  "extends": "@antfu",
-  "rules": {
-    "no-console": "off",
-    "no-alert": "off"
-  }
+    "extends": [
+        "@nuxtjs",
+        "@antfu"
+    ],
+    "rules": {
+        "no-console": "off",
+        "no-alert": "off"
+    }
 }

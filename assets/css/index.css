@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  /** General button styles */
+  .btn {
+    @apply inline-flex items-center px-6 py-1.5 rounded-full !font-semibold transition-colors tracking-wide text-center !no-underline cursor-pointer;
+    font-size: 0.9rem;
+  }
+  
+  /** Large button */
+  .btn--lg {
+    @apply px-10 py-3;
+  }
+
+  /** Primary button */
+  .btn.btn--primary {
+    @apply bg-theme-primary-500 text-white hover:bg-theme-primary-600 focus:bg-theme-primary-600;
+  }
+
+  .btn.btn--text-primary {
+    @apply text-theme-primary-500 hover:text-theme-primary-600 focus:text-theme-primary-600;
+  }
+
+  /** Secondary button */
+  .btn.btn--secondary {
+    @apply bg-theme-secondary-500 text-white hover:bg-theme-secondary-600 focus:bg-theme-secondary-600;
+  }
+
+  .btn.btn--light {
+    @apply bg-theme-surface-0 text-theme-primary-500 hover:bg-slate-100 focus:bg-slate-100;
+  }
+
+  .prosey {
+    @apply prose;
+  }
+  
+  .prosey-md {
+    @apply prose;
+  }
+
+  .prosey-lg {
+    @apply 
+      prose prose-lg;
+  }
+
+
+  .prosey,
+  .prosey-lg,
+  .prosey-md {
+    @apply 
+      prose-headings:text-theme-foreground-0
+      prose-h1:font-black
+      prose-h2:font-bold
+      prose-h3:font-bold
+      prose-h4:font-bold
+      prose-p:text-theme-foreground-1
+      prose-a:no-underline 
+      prose-a:text-theme-foreground-1
+      /*prose-ul:list-inside 
+      prose-ul:pl-0 
+      prose-li:pl-0*/
+      prose-ul:list-outside
+      prose-li:text-theme-foreground-1
+      prose-img:rounded-lg
+      prose-img:max-w-full
+      prose-img:block
+      prose-strong:text-black
+      max-w-none;
+  }
+
+  /** Links that aren't a button or a hash */
+  .prosey     a:not(.btn):not([href*="#"]):not(.no-underline)::before,
+  .prosey-md  a:not(.btn):not([href*="#"]):not(.no-underline)::before,
+  .prosey-lg  a:not(.btn):not([href*="#"]):not(.no-underline)::before {
+    content: "";
+    position: absolute;
+    bottom: -0px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-500);
+    border-radius: 999px;
+  }
+
+  .prosey-md h1 a,
+  .prosey-md h2 a,
+  .prosey-md h3 a,
+  .prosey-md h4 a {
+    @apply no-underline;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  .form-group {
+    @apply relative block w-full;
+  }
+
+  .form-group--required .form-label::after {
+    content: "*";
+    @apply inline-block align-middle text-red-500 ml-1;
+  }
+
+  .form-label {
+    @apply block w-full text-theme-foreground-1 mb-2;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    @apply 
+      block 
+      w-full 
+      py-2.5 px-4
+      bg-theme-surface-1 
+      text-theme-foreground-1
+      placeholder-theme-foreground-1 
+      placeholder-opacity-50
+      !border
+      border-theme-surface-1 
+      !shadow-none 
+      rounded-md
+      !ring-0
+      transition-colors;
+    @apply 
+      focus:!border-theme-primary-500;
+  }
+
+  html.light .form-input,
+  html.light .form-select,
+  html.light .form-textarea {
+    @apply border-gray-300;
+  }
+
+}
+
+
+/** Theme variables */
+:root {
+  --light-surface-0: #FFFFFF;
+  --light-surface-1: #f9fafb;
+  --light-foreground-0: #1e293b;
+  --light-foreground-1: #334155;
+  --light-primary-500: #6366f1;
+  --light-primary-600: #4f46e5;
+  --light-secondary-500: #111827;
+  --light-secondary-600: #1f2937;
+
+  --dark-surface-0: #111827;
+  --dark-surface-1: #1e293b;
+  --dark-foreground-0: #e9e9eb;
+  --dark-foreground-1: #dddddf;
+  --dark-primary-500: #6366f1;
+  --dark-primary-600: #818cf8;
+  --dark-secondary-500: #42506B;
+  --dark-secondary-600: #55627a;
+
+  --surface-0: var(--light-surface-0);
+  --surface-1: var(--light-surface-1);
+  --foreground-0: var(--light-foreground-0);
+  --foreground-1: var(--light-foreground-1);
+  --primary-500: var(--light-primary-500);
+  --primary-600: var(--light-primary-600);
+  --secondary-500: var(--light-secondary-500);
+  --secondary-600: var(--light-secondary-600);
+}
+
+html.dark {
+  --surface-0: var(--dark-surface-0);
+  --surface-1: var(--dark-surface-1);
+  --foreground-0: var(--dark-foreground-0);
+  --foreground-1: var(--dark-foreground-1);
+  --primary-500: var(--dark-primary-500);
+  --primary-600: var(--dark-primary-600);
+  --secondary-500: var(--dark-secondary-500);
+  --secondary-600: var(--dark-secondary-600);
+}
+
+/** Media quiery for touch devices */
+@media (hover: hover) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0,0,0,0.1);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+/** Apply position relative to everything */
+* {
+  position: relative;
+  -webkit-tap-highlight-color: transparent; /* for removing the highlight */
+}
+
+/** Html styles */
+html {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: var(--foreground-0);
+  background-color: var(--surface-0);
+}
+
+
+/** Breakpoint below 'sm', reduce rem */
+@media (max-width: 639px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/** Body styles */
+body {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/** Make SVGs display inline with text */
+svg {
+  display: inline;
+}
+
+/** Container */
+@media (max-width: 1024px) { 
+  .container {
+    max-width: none!important;
+  }
+}
+
+::selection {
+  background: #000000;
+  color: #FFF;
+}
+
+.mask-squircle {
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCiAgPHBhdGggZD0iTSAxMDAgMCBDIDIwIDAgMCAyMCAwIDEwMCBDIDAgMTgwIDIwIDIwMCAxMDAgMjAwIEMgMTgwIDIwMCAyMDAgMTgwIDIwMCAxMDAgQyAyMDAgMjAgMTgwIDAgMTAwIDAgWiIvPgoKPC9zdmc+);
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  @apply fixed top-0 left-0 w-full h-[3px] bg-primary-500 opacity-80;
+  z-index: 1031;
+}
+
+.page-enter-from{
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #a855f7 30%, #6366f1);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
