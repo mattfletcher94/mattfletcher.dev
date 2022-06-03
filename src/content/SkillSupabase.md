@@ -1,1 +1,0 @@
-My current side-project, diagramming.io, uses Supabase, the open-source Firebase alternative. I was surprised at how easy it is to implement an authentication mechanism with Supabase. I had never used a Postgres database, but I found it easy with my experience with other SQL-based languages.

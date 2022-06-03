@@ -1,3 +1,0 @@
-My full-stack applications generally use document-based databases, such as MongoDB. I find the flexibility of Mongo useful since it allows the application to scale smoothly. Furthermore, using the Mongoose ODM library in conjunction with Mongo helps with the interaction between the server and the database, and allows me to define and adjust schema quickly.
-
-However, I'm not shy of SQL type databases. I find it satisfying to build entity-relationship diagrams and convert them to SQL code. I learned the basics of SQL during my early days of Wordpress development. During my time at University, we had multiple modules on SQL, including Oracle and Microsoft SQL Server. 

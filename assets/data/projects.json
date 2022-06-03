@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Interactive Map",
+    "description": "The Interactive Holiday Park Map project's objective was to make the process of booking a holiday and exploring a holiday park a more immersive and satisfying experience.",
+    "image": "assets/images/project-interactive-map.webp",
+    "slug": "/portfolio/interactive-map",
+    "type": "Full Stack Project",
+    "tags": ["Vue", "Bootstrap", "REST API", "MongoDB"]
+  },
+  {
+    "title": "Online Multiplayer Shooter",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "image": "assets/images/project-online-2d-shooter.png",
+    "slug": "/portfolio/2d-shooter",
+    "type": "Full Stack Project",
+    "tags": ["Online Game", "Vue", "websockets", "WebGL"]
+  },
+  {
+    "title": "Quantum Supremacy",
+    "description": "This project required me to write a scientific research paper on a topic related to Computer Science. I decided to write about Quantum Computing, since this is a topic that interests me. This is my best written work and I received a very strong First.",
+    "image": "assets/images/project-quantum.webp",
+    "slug": "/portfolio/quantum-supremacy",
+    "type": "Scientific Research Report",
+    "tags": ["Scientific Research Report"]
+  },
+  {
+    "title": "Wordpress Websites",
+    "slug": "/portfolio/maria-hocking",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    "image": "/project-mariahocking.png",
+    "type": "Web Development",
+    "tags": ["Wordpress", "Bootstrap", "PHP"]
+  }
+]

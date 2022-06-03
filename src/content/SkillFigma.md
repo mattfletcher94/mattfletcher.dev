@@ -1,1 +1,0 @@
-I used to develop applications straight from paper prototypes. Of course, this would increase the delivery time of the project since it would require many code adjustments. I have been pushing myself to learn Figma so I can create useful prototypes before converting them into code.
