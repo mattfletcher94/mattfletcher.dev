@@ -27,7 +27,7 @@ I still main these websites, but due to their flexibility they do not require mu
 ## Maria Hocking
 Maria is a Life Coach, Motivational Speaker and Author and has an active blog on her website.
 
-<img src="/images/project-mariahocking.webp" alt="Maria Hocking Website" style="width:500px;" />
+<img src="/images/project-maria-hocking-thumbnail.webp" alt="Maria Hocking Website" style="width:500px;" />
 
 <a href="https://www.mariahocking.com/" target="_blank">View Website</a>
 
