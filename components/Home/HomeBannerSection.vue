@@ -21,12 +21,14 @@
               user-centric web applications. I'm proficient in fundamental front-end and server-side languages,
               with a strong emphasis on Vue, React & Express.
             </p>
+            <!--
             <a class="btn btn--primary" href="/matt-fletcher-cv.pdf" download aria-label="Download resume">
               Download Resume
               <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </a>
+            -->
           </div>
         </div>
         <div class="order-1 md:order-2 col-span-12 md:col-span-4 mb-12 md:mb-0">

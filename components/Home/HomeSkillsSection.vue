@@ -43,6 +43,7 @@ const props = defineProps({
           </template>
         </CardSkill>
       </div>
+      <!--
       <div class="mt-12 text-center">
         <a class="btn btn--primary" href="/matt-fletcher-cv.pdf" download aria-label="Download resume">
           Download Resume
@@ -51,6 +52,7 @@ const props = defineProps({
           </svg>
         </a>
       </div>
+      -->
     </div>
   </div>
 </template>
