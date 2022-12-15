@@ -1,1 +1,0 @@
-import{j as i,m as n,l as r}from"./entry.773593e7.js";function a(e,l=!0){const o="Matt Fletcher - Full Stack Developer Based in Plymouth, UK",t={...e};l?t.title=e.title?`${e.title} | ${o}`:o:t.title=e.title,i(t)}let s=!1;function c(){n(()=>{const{$NProgress:e}=r();e.done(),s&&setTimeout(()=>{console.log("do scroll to top"),window.scrollTo(0,0)},350),s=!0})}export{c as a,a as u};

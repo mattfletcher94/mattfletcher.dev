@@ -31,6 +31,7 @@ const props = defineProps({
           v-for="project in projects"
           :key="project._path"
           :to="project._path"
+          :title="project.title"
           class="card rounded-2xl bg-theme-surface-1 overflow-hidden"
         >
           <div class="aspect-w-16 aspect-h-16 overflow-hidden bg-gray-900">
@@ -60,7 +61,7 @@ const props = defineProps({
               </div>
               <div class="overlay-content-2 absolute inset-0 flex items-end w-full h-full p-4">
                 <div class="prosey text-left w-full">
-                  <p class="text-white line-clamp-4">
+                  <p class="text-white line-clamp-4 leading-normal ">
                     {{ project.description }}
                   </p>
                   <p class="font-bold text-white">

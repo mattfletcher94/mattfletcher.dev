@@ -9,9 +9,8 @@ export function useProgressDone() {
 
     if (hasCompletedFirstRender) {
       setTimeout(() => {
-        console.log('do scroll to top')
         window.scrollTo(0, 0)
-      }, 350)
+      }, 300)
     }
     hasCompletedFirstRender = true
   })

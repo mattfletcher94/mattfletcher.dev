@@ -4,7 +4,7 @@ export default defineNuxtPlugin(async () => {
   NProgress.configure({
     showSpinner: false,
     easing: 'ease',
-    speed: 500,
+    speed: 300,
   })
   const router = useRouter()
   router.beforeEach((to, from, next) => {

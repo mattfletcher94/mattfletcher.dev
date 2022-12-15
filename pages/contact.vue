@@ -7,7 +7,7 @@ useSiteHead({
   title: 'Contact',
   meta: [
     { name: 'description', content: 'Feel free to contact me, i\'m always happy to talk dev.' },
-    { name: 'keywords', content: 'Matt Fletcher, Contact, Full Stack, Developer, Plymouth, UK' },
+    { name: 'keywords', content: 'Matt Fletcher, Contact, Full Stack, Developer, Hampshire, UK' },
   ],
 })
 

@@ -12,7 +12,7 @@
               <span class="text-gradient block md:inline">Full stack developer.</span>
             </h1>
             <h2 class="mt-0 mb-8">
-              Based in Plymouth, UK.
+              Based in Hampshire, UK.
               <br>
               Computer Science Degree.
             </h2>

@@ -6,7 +6,7 @@ definePageMeta({
   layout: 'main',
 })
 
-const { data } = await useAsyncData('getFrontPageData2', async (ctx) => {
+const { data } = await useAsyncData('getFrontPageData', async (ctx) => {
   return Promise.all([
     import('~/assets/data/skills.json'),
     queryContent<Post>('blog').limit(3).sort({ date: -1 }).only(['title', 'image', 'type', 'tags', '_path']).find(),
@@ -25,11 +25,11 @@ useSiteHead({
   meta: [
     {
       name: 'description',
-      content: 'self-motivated full-stack developer with a passion for building web applications, with a strong emphasis on Vue, React, Express and MongoDB',
+      content: 'self-motivated full-stack developer with a passion for building web applications, with a strong emphasis on Vue, React, Node.js and DB development',
     },
     {
       name: 'keywords',
-      content: 'Matt Fletcher, Full Stack Developer, Plymouth, Vue.js, Portfolio',
+      content: 'Matt Fletcher, Full Stack Developer, Hampshire, Vue.js, Portfolio',
     },
   ],
 })
@@ -41,13 +41,13 @@ useProgressDone()
   <div>
     <HomeBannerSection />
     <HomeSkillsSection
-      :skills="data.skills"
+      :skills="data?.skills || []"
     />
     <HomePortfolioSection
-      :projects="data.projects"
+      :projects="data?.projects || []"
     />
     <HomeBlogSection
-      :posts="data.posts"
+      :posts="data?.posts || []"
     />
   </div>
 </template>
