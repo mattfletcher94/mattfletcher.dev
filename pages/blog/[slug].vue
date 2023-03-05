@@ -6,11 +6,11 @@ const { fullPath } = useRoute()
 const { data } = await useAsyncData(fullPath, async () => {
   return Promise.all([
     queryContent<Post>(fullPath).findOne(),
-    queryContent('blog').findSurround(fullPath),
+    // queryContent('blog').findSurround(fullPath),
   ]).then(([post, surrounds]) => {
     return Promise.resolve({
       post,
-      surrounds,
+      // surrounds,
     })
   })
 })
@@ -48,6 +48,7 @@ useProgressDone()
         </router-link>
         <ContentRenderer :value="data.post" />
       </div>
+      <!--
       <div class="block mt-6 md:mt-12">
         <div class="grid grid-cols-2 gap-6">
           <div>
@@ -84,6 +85,7 @@ useProgressDone()
           </div>
         </div>
       </div>
+      -->
     </div>
   </div>
 </template>

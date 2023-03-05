@@ -5,11 +5,11 @@ const { fullPath } = useRoute()
 const { data } = await useAsyncData(fullPath, async () => {
   return Promise.all([
     queryContent<Project>(fullPath).findOne(),
-    queryContent('portfolio').sort({ date: -1 }).findSurround(fullPath),
+    // queryContent('portfolio').sort({ date: -1 }).findSurround(fullPath),
   ]).then(([project, surrounds]) => {
     return Promise.resolve({
       project,
-      surrounds,
+      // surrounds,
     })
   })
 })
@@ -47,6 +47,7 @@ useProgressDone()
         </router-link>
         <ContentRenderer v-if="data.project" :value="data.project" />
       </div>
+      <!--
       <div class="block mt-6 md:mt-12">
         <div class="grid grid-cols-2 gap-6">
           <div>
@@ -83,6 +84,7 @@ useProgressDone()
           </div>
         </div>
       </div>
+      -->
     </div>
   </div>
 </template>
