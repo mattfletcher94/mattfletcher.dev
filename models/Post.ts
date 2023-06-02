@@ -5,6 +5,8 @@ export interface Post extends ParsedContent {
   'description': string
   'keywords': string
   'image': string
+  'banner'?: string
   'type': string
   'tags': string[]
+  '_path': string
 }

@@ -3,20 +3,26 @@ import type { Post } from '~~/models/Post'
 import IconArrowRight from '~~/components/Icon/IconArrowRight.vue'
 const { fullPath } = useRoute()
 
-const { data } = await useAsyncData(fullPath, async () => {
-  return Promise.all([
-    queryContent<Post>(fullPath).findOne(),
-    // queryContent('blog').findSurround(fullPath),
-  ]).then(([post, surrounds]) => {
-    return Promise.resolve({
-      post,
-      // surrounds,
-    })
-  })
-})
-
 definePageMeta({
   layout: 'main',
+})
+
+const { data } = await useAsyncData(fullPath, async () => {
+  const [post, surrounds] = await Promise.all([
+    queryContent<Post>(fullPath).findOne(),
+    queryContent<Post>('blog').sort({ date: -1 }).findSurround(fullPath),
+  ])
+
+  return {
+    post: {
+      ...post,
+      path: post._path,
+    },
+    surrounds: {
+      prev: surrounds[0] ? { ...surrounds[0], path: surrounds[0]._path } : null,
+      next: surrounds[1] ? { ...surrounds[1], path: surrounds[1]._path } : null,
+    },
+  }
 })
 
 useSiteHead({
@@ -26,8 +32,6 @@ useSiteHead({
     { name: 'keywords', content: data.value?.post.keywords },
   ],
 })
-
-useProgressDone()
 </script>
 
 <template>
@@ -48,16 +52,15 @@ useProgressDone()
         </router-link>
         <ContentRenderer :value="data.post" />
       </div>
-      <!--
       <div class="block mt-6 md:mt-12">
         <div class="grid grid-cols-2 gap-6">
           <div>
-            <router-link v-if="data.surrounds[0] && data.surrounds[0]._path" :to="data.surrounds[0]._path" class="block h-full  bg-theme-surface-1 text-theme-foreground-1 rounded-lg p-4 text-left transition-colors">
+            <router-link v-if="data.surrounds.prev" :to="data.surrounds.prev._path" class="block h-full  bg-theme-surface-1 text-theme-foreground-1 rounded-lg p-4 text-left transition-colors">
               <div class="md:flex items-center gap-6">
                 <div class="md:order-2">
                   <div class="prosey">
                     <h4 class="font-bold">
-                      {{ data.surrounds[0].title }}
+                      {{ data.surrounds.prev.title }}
                     </h4>
                   </div>
                 </div>
@@ -68,12 +71,12 @@ useProgressDone()
             </router-link>
           </div>
           <div>
-            <router-link v-if="data.surrounds[1] && data.surrounds[1]._path" :to="data.surrounds[1]._path" class="block h-full bg-theme-surface-1 text-theme-foreground-1 rounded-lg p-4 text-right md:text-left transition-colors">
+            <router-link v-if="data.surrounds.next" :to="data.surrounds.next._path" class="block h-full bg-theme-surface-1 text-theme-foreground-1 rounded-lg p-4 text-right md:text-left transition-colors">
               <div class="md:flex items-center gap-6">
                 <div>
                   <div class="prosey">
                     <h4 class="font-bold">
-                      {{ data.surrounds[1].title }}
+                      {{ data.surrounds.next.title }}
                     </h4>
                   </div>
                 </div>
@@ -85,7 +88,6 @@ useProgressDone()
           </div>
         </div>
       </div>
-      -->
     </div>
   </div>
 </template>

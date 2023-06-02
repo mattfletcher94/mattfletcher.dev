@@ -122,9 +122,9 @@ watch(() => props.open, async (open) => {
             leave-to="opacity-0 translate-y-2/4"
           >
             <div
-              class="dialog bg-theme-surface-0 rounded-t-3xl shadow-2xl overflow-hidden ring-1 ring-black ring-opacity-5"
+              class="dialog w-full h-full max-h-[70vh] bg-theme-surface-0 rounded-t-3xl shadow-2xl overflow-hidden ring-1 ring-black ring-opacity-5"
             >
-              <div ref="dialogHeader" class="dialog-header">
+              <div ref="dialogHeader" class="dialog-header block w-full">
                 <div class="block p-4 border-b border-b-theme-surface-1 text-theme-foreground-0  text-base">
                   <div class="flex items-center">
                     <router-link to="/" aria-label="Home" class="!outline-none">
@@ -152,20 +152,20 @@ watch(() => props.open, async (open) => {
                   </div>
                 </div>
               </div>
-              <div ref="dialogContent" class="dialog-content" :style="{ height: contentHeight }">
+              <div ref="dialogContent" class="dialog-content block w-full overflow-y-auto overflow-x-hidden" :style="{ height: contentHeight }">
                 <div class="block">
                   <router-link
                     v-for="item in navigation"
                     :key="item.name"
                     :to="item.path"
-                    class="nav-item block w-full transition-opacity duration-300 hover:opacity-70 !outline-none"
+                    class="nav-item block w-full p-4 transition-opacity duration-300 hover:opacity-70 !outline-none"
                     @click="handleClose()"
                   >
                     {{ item.name }}
                   </router-link>
                 </div>
               </div>
-              <div ref="dialogFooter" class="dialog-footer">
+              <div ref="dialogFooter" class="dialog-footer block w-full">
                 <div class="block p-4 border-t border-t-theme-surface-1">
                   <div class="flex items-center">
                     <!--
@@ -208,23 +208,6 @@ watch(() => props.open, async (open) => {
 </template>
 
 <style scoped>
-.dialog {
-  @apply w-full h-full;
-  max-height: 70vh;
-}
-.dialog-header {
-  @apply block w-full;
-}
-.dialog-content {
-  @apply block w-full overflow-y-auto overflow-x-hidden;
-}
-.dialog-footer {
-  @apply block w-full;
-}
-
-.nav-item {
-  @apply block w-full p-4;
-}
 .nav-item::after {
   content: "";
   position: absolute;

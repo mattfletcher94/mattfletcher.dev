@@ -1,13 +1,14 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-import type { Project } from '~/models/Project'
-
-const props = defineProps({
-  projects: {
-    type: Array as PropType<Project[]>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  projects: Array<{
+    title: string
+    image: string
+    type: string
+    description: string
+    tags: string[]
+    path: string
+  }>
+}>()
 </script>
 
 <template>
@@ -28,9 +29,9 @@ const props = defineProps({
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3 mt-8">
         <router-link
-          v-for="project in projects"
-          :key="project._path"
-          :to="project._path"
+          v-for="project in props.projects"
+          :key="project.path"
+          :to="project.path"
           :title="project.title"
           class="card rounded-2xl bg-theme-surface-1 overflow-hidden"
         >

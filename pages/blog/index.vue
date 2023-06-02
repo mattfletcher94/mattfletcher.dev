@@ -5,19 +5,6 @@ definePageMeta({
   layout: 'main',
 })
 
-const { data, error, refresh } = await useAsyncData('getBlogPageData', async (ctx) => {
-  return Promise.all([
-    queryContent<Post>('blog')
-      .sort({ date: -1 })
-      .only(['title', 'image', 'type', 'tags', '_path'])
-      .find(),
-  ]).then(([posts]) => {
-    return Promise.resolve({
-      posts,
-    })
-  })
-})
-
 useSiteHead({
   title: 'Blog',
   meta: [
@@ -26,7 +13,18 @@ useSiteHead({
   ],
 })
 
-useProgressDone()
+const { data } = await useAsyncData('getBlogPageData', async (ctx) => {
+  const [posts] = await Promise.all([
+    queryContent<Post>('blog').sort({ date: -1 }).find(),
+  ])
+
+  return {
+    posts: posts.map(post => ({
+      ...post,
+      path: post._path,
+    })),
+  }
+})
 </script>
 
 <template>
@@ -44,8 +42,8 @@ useProgressDone()
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-8">
       <CardPost
-        v-for="post in data.posts"
-        :key="post.slug"
+        v-for="post in data?.posts"
+        :key="post._path"
         :title="post.title"
         :image="post.image"
         :type="post.type"

@@ -9,8 +9,6 @@ useSiteHead({
     { name: 'description', content: 'Kanban board privacy policy.' },
   ],
 })
-
-useProgressDone()
 </script>
 
 <template>

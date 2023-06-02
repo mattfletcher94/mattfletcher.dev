@@ -18,7 +18,7 @@
           <p class="mt-0 mb-8">
             I'm a self-motivated full-stack developer with a passion for building
             user-centric web applications. I'm proficient in fundamental front-end and server-side languages,
-            with a strong emphasis on Vue, React & Express.
+            with a strong emphasis on Vue and Nuxt.
           </p>
           <!--
             <a class="btn btn--primary" href="/matt-fletcher-cv.pdf" download aria-label="Download resume">

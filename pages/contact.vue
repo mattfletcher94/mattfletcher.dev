@@ -10,8 +10,6 @@ useSiteHead({
     { name: 'keywords', content: 'Matt Fletcher, Contact, Full Stack, Developer, Hampshire, UK' },
   ],
 })
-
-useProgressDone()
 </script>
 
 <template>

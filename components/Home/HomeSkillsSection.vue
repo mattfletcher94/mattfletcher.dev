@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import type { Skill } from '~/models/Skill'
 
-const props = defineProps({
-  skills: {
-    type: Array as PropType<Skill[]>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  skills: Skill[]
+}>()
 </script>
 
 <template>
@@ -25,7 +21,7 @@ const props = defineProps({
       </div>
       <div class="grid grid-cols-1 gap-4 xs:grid-cols-2 xs:gap-4 lg:grid-cols-4 lg:gap-6 mt-8">
         <CardSkill
-          v-for="skill in skills"
+          v-for="skill in props.skills"
           :key="skill.title"
           :title="skill.title"
           :subtitle="skill.subtitle"

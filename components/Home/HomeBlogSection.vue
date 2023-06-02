@@ -2,12 +2,15 @@
 import type { PropType } from 'vue'
 import type { Post } from '~/models/Post'
 
-defineProps({
-  posts: {
-    type: Array as PropType<Post[]>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  posts: Array<{
+    title: string
+    image: string
+    type: string
+    tags: string[]
+    _path: string
+  }>
+}>()
 </script>
 
 <template>
@@ -29,7 +32,7 @@ defineProps({
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-8">
         <CardPost
           v-for="(post, i) in posts"
-          :key="post.slug"
+          :key="post._path"
           :title="post.title"
           :image="post.image"
           :type="post.type"

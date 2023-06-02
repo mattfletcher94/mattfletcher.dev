@@ -1,32 +1,12 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
-
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
-  slug: {
-    type: String,
-    default: '',
-  },
-  type: {
-    type: String,
-    required: true,
-  },
-  tags: {
-    type: Array as PropType<string[]>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  title: string
+  description: string
+  image: string
+  slug: string
+  type: string
+  tags: string[]
+}>()
 </script>
 
 <template>

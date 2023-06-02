@@ -5,16 +5,6 @@ definePageMeta({
   layout: 'main',
 })
 
-const { data, error, refresh } = await useAsyncData('getPortfolioPageData', async (ctx) => {
-  return Promise.all([
-    queryContent<Project>('portfolio').sort({ date: -1 }).only(['title', 'image', 'type', 'type', 'description', 'tags', '_path']).find(),
-  ]).then(([projects]) => {
-    return Promise.resolve({
-      projects,
-    })
-  })
-})
-
 useSiteHead({
   title: 'Portfolio',
   meta: [
@@ -23,7 +13,18 @@ useSiteHead({
   ],
 })
 
-useProgressDone()
+const { data, error, refresh } = await useAsyncData('getPortfolioPageData', async (ctx) => {
+  const [portfolio] = await Promise.all([
+    queryContent<Project>('portfolio').sort({ date: -1 }).find(),
+  ])
+
+  return {
+    projects: portfolio.map(project => ({
+      ...project,
+      path: project._path,
+    })),
+  }
+})
 </script>
 
 <template>
@@ -40,8 +41,8 @@ useProgressDone()
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 mt-8 gap-8">
       <CardProject
-        v-for="project in data.projects"
-        :key="project.slug"
+        v-for="project in data?.projects"
+        :key="project.path"
         :title="project.title"
         :description="project.description"
         :image="project.image"

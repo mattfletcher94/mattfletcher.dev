@@ -6,20 +6,6 @@ definePageMeta({
   layout: 'main',
 })
 
-const { data } = await useAsyncData('getFrontPageData', async (ctx) => {
-  return Promise.all([
-    import('~/assets/data/skills.json'),
-    queryContent<Post>('blog').limit(3).sort({ date: -1 }).only(['title', 'image', 'type', 'tags', '_path']).find(),
-    queryContent<Project>('portfolio').sort({ date: -1 }).only(['title', 'image', 'type', 'type', 'description', 'tags', '_path']).find(),
-  ]).then(([skills, posts, projects]) => {
-    return Promise.resolve({
-      skills: skills.default,
-      posts,
-      projects,
-    })
-  })
-})
-
 useSiteHead({
   title: 'Home',
   meta: [
@@ -34,7 +20,25 @@ useSiteHead({
   ],
 })
 
-useProgressDone()
+const { data } = await useAsyncData('front-page-data', async (ctx) => {
+  const [skills, portfolio, posts] = await Promise.all([
+    import('~/assets/data/skills.json'),
+    queryContent<Project>('portfolio').sort({ date: -1 }).find(),
+    queryContent<Post>('blog').limit(3).sort({ date: -1 }).find(),
+  ])
+
+  return {
+    skills: skills.default,
+    portfolio: portfolio.map(project => ({
+      ...project,
+      path: project._path,
+    })),
+    posts: posts.map(post => ({
+      ...post,
+      path: post._path,
+    })),
+  }
+})
 </script>
 
 <template>
@@ -44,7 +48,7 @@ useProgressDone()
       :skills="data?.skills || []"
     />
     <HomePortfolioSection
-      :projects="data?.projects || []"
+      :projects="data?.portfolio || []"
     />
     <HomeBlogSection
       :posts="data?.posts || []"

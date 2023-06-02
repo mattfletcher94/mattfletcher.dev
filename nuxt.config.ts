@@ -9,12 +9,12 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-  content: {
+  /* content: {
     watch: false,
     highlight: {
       preload: ['javascript', 'css', 'html'],
     },
-  },
+  }, */
   tailwindcss: {
     cssPath: '~/assets/css/index.css',
     viewer: false,

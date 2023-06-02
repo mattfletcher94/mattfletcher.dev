@@ -59,9 +59,6 @@
       prose-p:text-theme-foreground-1
       prose-a:no-underline 
       prose-a:text-theme-foreground-1
-      /*prose-ul:list-inside 
-      prose-ul:pl-0 
-      prose-li:pl-0*/
       prose-ul:list-outside
       prose-li:text-theme-foreground-1
       prose-img:rounded-lg
@@ -265,7 +262,7 @@ svg {
   z-index: 1031;
 }
 
-.page-enter-from{
+.page-enter-from {
   opacity: 0;
   transform: translateY(-12px);
 }

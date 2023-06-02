@@ -8,7 +8,7 @@ type: "Electron App"
 date: "6"
 tags:
   - "Electron"
-  - "Vue.js"
+  - "Vue 3"
   - "Pinia"
   - "Tailwind"
   - "UI/UX"
