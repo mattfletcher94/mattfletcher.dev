@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Project } from '~/models/Project'
-const { fullPath } = useRoute()
 
-const { data } = await useAsyncData(fullPath, async () => {
+const { data } = await useAsyncData(async (ctx) => {
+  const { fullPath } = useRoute()
   const [project, surrounds] = await Promise.all([
     queryContent<Project>(fullPath).findOne(),
-    queryContent<Project>('portfolio').sort({ date: -1 }).findSurround(fullPath),
+    queryContent<Project>().sort({ date: -1 }).findSurround(fullPath),
   ])
 
   return {

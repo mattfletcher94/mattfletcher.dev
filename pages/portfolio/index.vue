@@ -13,7 +13,7 @@ useSiteHead({
   ],
 })
 
-const { data, error, refresh } = await useAsyncData('getPortfolioPageData', async (ctx) => {
+const { data } = await useAsyncData('getPortfolioPageData', async (ctx) => {
   const [portfolio] = await Promise.all([
     queryContent<Project>('portfolio').sort({ date: -1 }).find(),
   ])

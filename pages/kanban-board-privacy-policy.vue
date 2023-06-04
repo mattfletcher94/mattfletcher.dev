@@ -7,6 +7,7 @@ useSiteHead({
   title: 'Kanban Board Privacy Policy',
   meta: [
     { name: 'description', content: 'Kanban board privacy policy.' },
+    { name: 'robots', content: 'noindex, nofollow' },
   ],
 })
 </script>
