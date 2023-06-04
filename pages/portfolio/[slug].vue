@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { Project } from '~/models/Project'
 const route = useRoute()
+const slug = computed(() => route.params.slug as string)
 
-const { data } = await useAsyncData('portfolio-slug', async (ctx) => {
+const { data } = await useAsyncData(`portfolio-${slug.value}`, async (ctx) => {
   const { fullPath } = useRoute()
   const [project, surrounds] = await Promise.all([
     queryContent<Project>(fullPath).findOne(),
@@ -20,7 +21,7 @@ const { data } = await useAsyncData('portfolio-slug', async (ctx) => {
     },
   }
 }, {
-  watch: [() => route.params.slug],
+  watch: [() => slug.value],
 })
 
 definePageMeta({
@@ -50,7 +51,7 @@ useSiteHead({
       <div class="prosey-md text-left mt-6">
         <router-link to="/portfolio/" class="inline-block align-middle mb-6 no-underline font-bold text-theme-foreground-1 hover:text-primary-500 focus:text-primary-500">
           <IconArrowLeft class="mr-1 w-5 h-5" />
-          Back to portfolio
+          Back to portfolio {{ slug }}
         </router-link>
         <ContentRenderer v-if="data.project" :value="data.project" />
       </div>

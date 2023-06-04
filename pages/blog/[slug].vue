@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import type { Post } from '~~/models/Post'
 import IconArrowRight from '~~/components/Icon/IconArrowRight.vue'
+
 const route = useRoute()
+const slug = computed(() => route.params.slug as string)
 
 definePageMeta({
   layout: 'main',
 })
 
-const { data } = await useAsyncData('blog-slug', async () => {
+const { data } = await useAsyncData(`blog-${slug.value}`, async () => {
   const { fullPath } = useRoute()
   const [post, surrounds] = await Promise.all([
     queryContent<Post>(fullPath).findOne(),
@@ -25,7 +27,7 @@ const { data } = await useAsyncData('blog-slug', async () => {
     },
   }
 }, {
-  watch: [() => route.params.slug],
+  watch: [() => slug.value],
 })
 
 useSiteHead({
