@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import type { Post } from '~~/models/Post'
 import IconArrowRight from '~~/components/Icon/IconArrowRight.vue'
-const { fullPath } = useRoute()
+const route = useRoute()
 
 definePageMeta({
   layout: 'main',
 })
 
-const { data } = await useAsyncData(fullPath, async () => {
+const { data } = await useAsyncData('blog-slug', async () => {
+  const { fullPath } = useRoute()
   const [post, surrounds] = await Promise.all([
     queryContent<Post>(fullPath).findOne(),
     queryContent<Post>('blog').sort({ date: -1 }).findSurround(fullPath),
@@ -23,6 +24,8 @@ const { data } = await useAsyncData(fullPath, async () => {
       next: surrounds[1] ? { ...surrounds[1], path: surrounds[1]._path } : null,
     },
   }
+}, {
+  watch: [() => route.params.slug],
 })
 
 useSiteHead({

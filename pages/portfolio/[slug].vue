@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { Project } from '~/models/Project'
+const route = useRoute()
 
-const { data } = await useAsyncData(async (ctx) => {
+const { data } = await useAsyncData('portfolio-slug', async (ctx) => {
   const { fullPath } = useRoute()
   const [project, surrounds] = await Promise.all([
     queryContent<Project>(fullPath).findOne(),
-    queryContent<Project>().sort({ date: -1 }).findSurround(fullPath),
+    queryContent<Project>('portfolio').sort({ date: -1 }).findSurround(fullPath),
   ])
 
   return {
@@ -18,6 +19,8 @@ const { data } = await useAsyncData(async (ctx) => {
       next: surrounds[1] ? { ...surrounds[1], path: surrounds[1]._path } : null,
     },
   }
+}, {
+  watch: [() => route.params.slug],
 })
 
 definePageMeta({
