@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from 'openai'
 import { z } from 'zod'
 import { RateLimiter } from 'limiter'
 
-const tokensPerInterval = 2
+const tokensPerInterval = 30
 const interval = 15 * 60 * 1000
 const limiter = new RateLimiter({
   tokensPerInterval,
