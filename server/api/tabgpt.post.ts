@@ -11,6 +11,14 @@ const limiter = new RateLimiter({
 })
 
 export default defineEventHandler(async (event) => {
+  setResponseHeaders(event, {
+    'Access-Control-Allow-Methods': 'POST',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Expose-Headers': '*',
+  })
+
   const remainingRequest = await limiter.removeTokens(1)
   event.node.res.setHeader('X-RateLimit-Limit', tokensPerInterval)
   event.node.res.setHeader('X-RateLimit-Remaining', remainingRequest)
