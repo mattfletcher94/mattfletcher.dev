@@ -11,14 +11,6 @@ const limiter = new RateLimiter({
 })
 
 export default defineEventHandler(async (event) => {
-  setResponseHeaders(event, {
-    'Access-Control-Allow-Methods': 'POST',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Headers': '*',
-    'Access-Control-Expose-Headers': '*',
-  })
-
   const remainingRequest = await limiter.removeTokens(1)
   event.node.res.setHeader('X-RateLimit-Limit', tokensPerInterval)
   event.node.res.setHeader('X-RateLimit-Remaining', remainingRequest)
@@ -27,6 +19,9 @@ export default defineEventHandler(async (event) => {
     throw createError({
       statusCode: 429,
       statusMessage: 'Too many Requests',
+      data: {
+        message: 'Too many requests. Please try again later.',
+      },
     })
   }
 
@@ -94,16 +89,19 @@ export default defineEventHandler(async (event) => {
       errorMessage = 'Something went wrong. Please try again.'
 
     else if (error.response.status === 400 && error.response.data.error.code === 'context_length_exceeded')
-      errorMessage = 'This web page is too long for me to read. Please select a smaller portion of the web page and try again.'
+      errorMessage = 'This web page is too long. Please select a smaller portion of the web page and try again.'
 
     else if (error.response.status === 402 && error.response.data.error.code === 'too_many_requests')
-      errorMessage = 'I am too busy right now. Please try again later.'
+      errorMessage = 'We\'re am too busy right now. Please try again later.'
 
     else if (error.response.status === 402 && error.response.data.error.code === 'insufficient_funds')
-      errorMessage = 'Sorry, we\'ve received too many request today and have exceeded our daily quota. Please try again tomorrow.'
+      errorMessage = 'We\'ve received too many request today and have exceeded our daily quota. Please try again tomorrow.'
 
     else if (error.response.status === 401)
-      errorMessage = 'Sorry, we\'re currently unable to process your request. Please try again later'
+      errorMessage = 'We\'re currently unable to process your request. Please try again later'
+
+    else if (error.response.status === 429)
+      errorMessage = 'I am too busy right now. Please try again later.'
 
     throw createError({
       statusCode: error.response?.status || 500,
