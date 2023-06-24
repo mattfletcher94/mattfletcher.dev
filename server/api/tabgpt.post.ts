@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from 'openai'
 import { z } from 'zod'
 import { RateLimiter } from 'limiter'
 
-const tokensPerInterval = 30
+const tokensPerInterval = 60
 const interval = 15 * 60 * 1000
 const limiter = new RateLimiter({
   tokensPerInterval,
@@ -11,18 +11,26 @@ const limiter = new RateLimiter({
 })
 
 export default defineEventHandler(async (event) => {
+  setResponseHeaders(event, {
+    'Access-Control-Allow-Methods': 'POST',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Expose-Headers': '*',
+  })
+
   const remainingRequest = await limiter.removeTokens(1)
   event.node.res.setHeader('X-RateLimit-Limit', tokensPerInterval)
   event.node.res.setHeader('X-RateLimit-Remaining', remainingRequest)
   event.node.res.setHeader('X-RateLimit-Reset', interval)
   if (remainingRequest < 0) {
-    throw createError({
-      statusCode: 429,
-      statusMessage: 'Too many Requests',
-      data: {
-        message: 'Too many requests. Please try again later.',
+    return {
+      data: null,
+      error: {
+        code: 'too_many_requests',
+        message: 'Too many requests, please try again later.',
       },
-    })
+    }
   }
 
   const runtimeConfig = useRuntimeConfig()
@@ -35,14 +43,13 @@ export default defineEventHandler(async (event) => {
 
   const bodyResult = bodySchema.safeParse(body)
   if (!bodyResult.success) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Bad Request',
-      data: {
+    return {
+      data: null,
+      error: {
+        code: 'invalid_request_body',
         message: 'Invalid request body.',
-        errors: bodyResult.error,
       },
-    })
+    }
   }
 
   const systemPrompt = `
@@ -80,35 +87,53 @@ export default defineEventHandler(async (event) => {
         },
       ],
     })
-    return completion.data.choices[0].message?.content ?? ''
+    return {
+      data: {
+        answer: completion.data.choices[0].message?.content ?? '',
+      },
+      error: null,
+    }
   }
   catch (error: any) {
     let errorMessage = 'Something went wrong. Please try again.'
+    let errorCode = 'internal_server_error'
 
-    if (!error.response || !error.response.data)
+    if (!error.response || !error.response.data) {
       errorMessage = 'Something went wrong. Please try again.'
+      errorCode = 'internal_server_error'
+    }
 
-    else if (error.response.status === 400 && error.response.data.error.code === 'context_length_exceeded')
+    else if (error.response.status === 400 && error.response.data.error.code === 'context_length_exceeded') {
       errorMessage = 'This web page is too long. Please select a smaller portion of the web page and try again.'
+      errorCode = 'context_length_exceeded'
+    }
 
-    else if (error.response.status === 402 && error.response.data.error.code === 'too_many_requests')
-      errorMessage = 'We\'re am too busy right now. Please try again later.'
+    else if (error.response.status === 402 && error.response.data.error.code === 'too_many_requests') {
+      errorMessage = 'We\'re too busy right now. Please try again later.'
+      errorCode = 'too_many_requests'
+    }
 
-    else if (error.response.status === 402 && error.response.data.error.code === 'insufficient_funds')
+    else if (error.response.status === 402 && error.response.data.error.code === 'insufficient_funds') {
       errorMessage = 'We\'ve received too many request today and have exceeded our daily quota. Please try again tomorrow.'
+      errorCode = 'insufficient_funds'
+    }
 
-    else if (error.response.status === 401)
+    else if (error.response.status === 401) {
       errorMessage = 'We\'re currently unable to process your request. Please try again later'
+      errorCode = 'unauthorized'
+    }
 
-    else if (error.response.status === 429)
-      errorMessage = 'I am too busy right now. Please try again later.'
+    else if (error.response.status === 429) {
+      errorMessage = 'We\'re too too busy right now. Please try again later.'
+      errorCode = 'too_many_requests'
+    }
 
-    throw createError({
-      statusCode: error.response?.status || 500,
-      statusMessage: error.response?.statusText || 'Internal Server Error',
-      data: {
+    return {
+      data: null,
+      error: {
+        code: errorCode,
         message: errorMessage,
       },
-    })
+    }
   }
 })
