@@ -1,7 +1,27 @@
 import { Configuration, OpenAIApi } from 'openai'
 import { z } from 'zod'
+import { RateLimiter } from 'limiter'
+
+const tokensPerInterval = 2
+const interval = 15 * 60 * 1000
+const limiter = new RateLimiter({
+  tokensPerInterval,
+  interval,
+  fireImmediately: true,
+})
 
 export default defineEventHandler(async (event) => {
+  const remainingRequest = await limiter.removeTokens(1)
+  event.node.res.setHeader('X-RateLimit-Limit', tokensPerInterval)
+  event.node.res.setHeader('X-RateLimit-Remaining', remainingRequest)
+  event.node.res.setHeader('X-RateLimit-Reset', interval)
+  if (remainingRequest < 0) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: 'Too many Requests',
+    })
+  }
+
   const runtimeConfig = useRuntimeConfig()
   const body = await readBody(event)
 
