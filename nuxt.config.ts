@@ -9,12 +9,6 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-  /* content: {
-    watch: false,
-    highlight: {
-      preload: ['javascript', 'css', 'html'],
-    },
-  }, */
   tailwindcss: {
     cssPath: '~/assets/css/index.css',
     viewer: false,
@@ -26,11 +20,7 @@ export default defineNuxtConfig({
     strict: true,
   },
   css: [
-    '@fontsource/nunito-sans/400.css',
-    '@fontsource/nunito-sans/600.css',
-    '@fontsource/nunito-sans/700.css',
-    '@fontsource/nunito-sans/800.css',
-    '@fontsource/nunito-sans/900.css',
+
   ],
   app: {
     head: {
@@ -55,6 +45,9 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ['@headlessui/vue'],
+  },
+  runtimeConfig: {
+    openAIKey: process.env.OPENAI_KEY,
   },
   ssr: true,
 })
